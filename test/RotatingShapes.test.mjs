@@ -1,4 +1,4 @@
-/*
+
 import { describe, test } from "vitest";
 import { expect } from "chai";
 import { RotatingShape } from "../src/RotatingShape.mjs";
@@ -10,13 +10,13 @@ describe("Rotating 3x3 shape", () => {
      GHI`
   );
 
-  test("initial orientation", () => {
-    expect(shape.toString()).to.equalShape(
-      `ABC
-       DEF
-       GHI`
-    );
-  });
+  // test("initial orientation", () => {
+  //   expect(shape.toString()).to.equalShape(
+  //     `ABC
+  //      DEF
+  //      GHI`
+  //   );
+  // });
 
   test.skip("can be rotated right/clockwise", () => {
     expect(shape.rotateRight().toString()).to.equalShape(
@@ -34,7 +34,7 @@ describe("Rotating 3x3 shape", () => {
     );
   });
 });
-*/
+
 
 /*
 describe("Rotating 5x5 shape", () => {
