@@ -1,9 +1,15 @@
 export class RotatingShape {
   shape;
-  static fromString(str) {
-    this.shape = str;
-    return this;
-  }
-  toString() {}
 
+  constructor(str) {
+    this.shape = str;
+  }
+
+  static fromString(str) {
+    return new RotatingShape(str.replaceAll(" ", "") + "\n");
+  }
+
+  toString() {
+    return this.shape;
+  }
 }

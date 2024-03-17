@@ -10,13 +10,13 @@ describe("Rotating 3x3 shape", () => {
      GHI`
   );
 
-  // test("initial orientation", () => {
-  //   expect(shape.toString()).to.equalShape(
-  //     `ABC
-  //      DEF
-  //      GHI`
-  //   );
-  // });
+  test("initial orientation", () => {
+    expect(shape.toString()).to.equalShape(
+      `ABC
+       DEF
+       GHI`
+    );
+  });
 
   test.skip("can be rotated right/clockwise", () => {
     expect(shape.rotateRight().toString()).to.equalShape(
