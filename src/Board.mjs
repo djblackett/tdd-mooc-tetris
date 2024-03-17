@@ -27,7 +27,9 @@ export class Board {
   }
 
   tick() {
-    if (this.movingBlock && this.movingBlock[2] === this.height - 1) {
+    if (this.movingBlock &&
+       (this.movingBlock[2] === this.height - 1 ||
+        this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".")) {
       this.movingBlock = null;
     }
     else if (this.movingBlock) {
