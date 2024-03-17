@@ -18,14 +18,19 @@ export class Board {
   }
 
   drop(block) {
-    this.grid[0][1] = block;
-    this.movingBlock = [block, 1, 0];
+    if (this.movingBlock === null) {
+      this.grid[0][1] = block;
+      this.movingBlock = [block, 1, 0];
+    } else {
+      throw new Error("already falling");
+    }
   }
 
   tick() {
-    this.grid[this.movingBlock[2]][this.movingBlock[1]] = ".";
-    this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] = this.movingBlock[0];
-
+    if (this.movingBlock) {
+      this.grid[this.movingBlock[2]][this.movingBlock[1]] = ".";
+      this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] = this.movingBlock[0];
+    }
   }
 
   toString() {
