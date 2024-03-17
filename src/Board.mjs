@@ -1,10 +1,15 @@
 export class Board {
   width;
   height;
+  blocks = [];
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
+  }
+
+  drop() {
+    this.blocks.push(["X", 0, 1])
   }
 
   toString() {
@@ -14,6 +19,9 @@ export class Board {
       for (let j = 0; j < this.width; j++) {
         grid[i][j] = ".";
       }
+    }
+    for (let block of this.blocks) {
+      grid[block[1]][block[2]] = block[0];
     }
     // convert grid to text for bottom
     let strings = grid.map(row => row.join(""));
