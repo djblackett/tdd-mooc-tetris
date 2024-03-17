@@ -7,6 +7,13 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
+
+    for (let i = 0; i < this.height; i++) {
+      this.grid[i] = [];
+      for (let j = 0; j < this.width; j++) {
+        this.grid[i][j] = ".";
+      }
+    }
   }
 
   drop(block) {
@@ -18,12 +25,7 @@ export class Board {
   }
 
   toString() {
-    for (let i = 0; i < this.height; i++) {
-      this.grid[i] = [];
-      for (let j = 0; j < this.width; j++) {
-        this.grid[i][j] = ".";
-      }
-    }
+
     for (let block of this.blocks) {
       this.grid[block[1]][block[2]] = block[0];
     }
