@@ -12,6 +12,10 @@ export class Board {
     this.blocks.push([block, 0, 1])
   }
 
+  tick() {
+
+  }
+
   toString() {
     const grid = [];
     for (let i = 0; i < this.height; i++) {
