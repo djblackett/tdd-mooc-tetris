@@ -8,7 +8,15 @@ export class Board {
   }
 
   toString() {
-    let string = ".".repeat(this.width) + "\n";
-    return string.repeat(this.height);
+    const grid = [];
+    for (let i = 0; i < this.height; i++) {
+      grid[i] = [];
+      for (let j = 0; j < this.width; j++) {
+        grid[i][j] = ".";
+      }
+    }
+    // convert grid to text for bottom
+    let strings = grid.map(row => row.join(""));
+    return strings.join("\n") + "\n";
   }
 }
