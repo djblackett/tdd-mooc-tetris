@@ -8,8 +8,8 @@ export class Board {
     this.height = height;
   }
 
-  drop() {
-    this.blocks.push(["X", 0, 1])
+  drop(block) {
+    this.blocks.push([block, 0, 1])
   }
 
   toString() {
