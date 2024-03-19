@@ -12,13 +12,13 @@ export class RotatingShape {
   rotateRight() {
     let newArr = this.getMatrixFromString()
     newArr = newArr[0].map((val, index) => newArr.map(row => row[index]).reverse());
-    return this.getStringFromMatrix(newArr);
+    return RotatingShape.fromString(this.getStringFromMatrix(newArr));
   }
 
   rotateLeft() {
     let matrix = this.getMatrixFromString();
     matrix = matrix[0].map((val, index) => matrix.map(row => row[row.length-1-index]));
-    return this.getStringFromMatrix(matrix);
+    return RotatingShape.fromString(this.getStringFromMatrix(matrix));
   }
 
   getMatrixFromString() {
@@ -32,7 +32,7 @@ export class RotatingShape {
 
   getStringFromMatrix(matrix) {
     let strings = matrix.map(row => row.join(""));
-    return strings.join("\n") + "\n";
+    return strings.join("\n");
   }
 
   toString() {
