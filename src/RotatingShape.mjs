@@ -12,8 +12,7 @@ export class RotatingShape {
   rotateRight() {
     let newArr = this.getMatrixFromString()
     newArr = newArr[0].map((val, index) => newArr.map(row => row[index]).reverse());
-    let strings = newArr.map(row => row.join(""));
-    return strings.join("\n") + "\n";
+    return this.getStringFromMatrix(newArr);
   }
 
   getMatrixFromString() {
@@ -23,6 +22,11 @@ export class RotatingShape {
       newArr.push(i.split(""));
     }
     return newArr;
+  }
+
+  getStringFromMatrix(matrix) {
+    let strings = matrix.map(row => row.join(""));
+    return strings.join("\n") + "\n";
   }
 
   toString() {
