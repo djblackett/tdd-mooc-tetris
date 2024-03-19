@@ -15,6 +15,12 @@ export class RotatingShape {
     return this.getStringFromMatrix(newArr);
   }
 
+  rotateLeft() {
+    let matrix = this.getMatrixFromString();
+    matrix = matrix[0].map((val, index) => matrix.map(row => row[row.length-1-index]));
+    return this.getStringFromMatrix(matrix);
+  }
+
   getMatrixFromString() {
     let shapeArr = this.shape.substring(0, this.shape.length - 1).split("\n");
     let newArr = []
