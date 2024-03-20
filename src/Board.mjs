@@ -64,4 +64,9 @@ export class Board {
     let strings = this.grid.map(row => row.join(""));
     return strings.join("\n") + "\n";
   }
+
+  printPretty() {
+    console.table(this.grid);
+  }
 }
+
