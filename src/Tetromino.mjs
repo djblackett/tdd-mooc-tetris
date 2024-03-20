@@ -6,8 +6,7 @@ export class Tetromino {
        TTT
        ...`);
 
-  static I_SHAPE = RotatingShape.fromString(
-    `.....
+  static I_SHAPE = RotatingShape.fromString(`.....
        .....
        IIII.
        .....
@@ -15,7 +14,10 @@ export class Tetromino {
 
   currentOrientation;
   orientations;
-  constructor() {
+
+  constructor(currentOrientation, orientations) {
+    this.currentOrientation = currentOrientation;
+    this. orientations = orientations;
   }
 
   static fromString(currentOrientation, orientationCount, initialShape) {
@@ -27,6 +29,10 @@ export class Tetromino {
       shape.rotateRight().rotateRight().rotateRight(),
     ].slice(0, orientationCount);
     return new Tetromino(currentOrientation, orientations);
+  }
+
+  toString() {
+
   }
 }
 
