@@ -19,8 +19,8 @@ export class Board {
 
   drop(block) {
     if (this.movingBlock === null) {
-      this.grid[0][1] = block;
-      this.movingBlock = [block, 1, 0];
+      this.grid[0][Math.floor(this.width / 2)] = block;
+      this.movingBlock = [block, Math.floor(this.width / 2), 0];
     } else {
       throw new Error("already falling");
     }
