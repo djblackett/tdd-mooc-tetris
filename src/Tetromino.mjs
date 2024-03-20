@@ -2,11 +2,11 @@ import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Tetromino {
 
-  static T_SHAPE = RotatingShape.fromString(`.T.
+  static T_SHAPE = Tetromino.fromString(0, 4, `.T.
        TTT
        ...`);
 
-  static I_SHAPE = RotatingShape.fromString(`.....
+  static I_SHAPE = Tetromino.fromString(0, 2, `.....
        .....
        IIII.
        .....
@@ -16,7 +16,7 @@ export class Tetromino {
   orientations;
 
   constructor(currentOrientation, orientations) {
-    this.currentOrientation = currentOrientation;
+    this.currentOrientation = (currentOrientation + orientations.length) % orientations.length;
     this. orientations = orientations;
   }
 
@@ -37,6 +37,13 @@ export class Tetromino {
 
   toString() {
     return this.shape().toString();
+  }
+
+  rotateRight() {
+    return new Tetromino(this.currentOrientation + 1, this.orientations);
+  }
+  rotateLeft() {
+    return new Tetromino(this.currentOrientation -1, this.orientations);
   }
 }
 
