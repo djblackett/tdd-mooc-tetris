@@ -19,6 +19,16 @@ export class Board {
 
   drop(block) {
     if (this.movingBlock === null) {
+      if (block instanceof Array) {
+        const blockHeight = block.length
+        const blockWidth = block[0].length
+        const jStart = Math.floor(this.width / 2) - Math.floor(blockWidth / 2)
+        const jEnd = jStart + blockWidth;
+        const iStart = 0;
+        const iEnd = blockHeight
+
+      }
+
       this.grid[0][Math.floor(this.width / 2)] = block;
       this.movingBlock = [block, Math.floor(this.width / 2), 0];
     } else {
