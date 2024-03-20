@@ -12,6 +12,10 @@ export class Tetromino {
        .....
        .....`);
 
+  static O_SHAPE = Tetromino.fromString(0, 1, `.OO
+       .OO
+       ...`);
+
   currentOrientation;
   orientations;
 
