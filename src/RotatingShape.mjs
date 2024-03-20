@@ -1,16 +1,16 @@
 export class RotatingShape {
   shape;
 
-  constructor(str) {
-    this.shape = str;
+  constructor(shape) {
+    this.shape = shape;
   }
 
   static fromString(str) {
-    return new RotatingShape(str.replaceAll(" ", "") + "\n");
+    return new RotatingShape(str.replaceAll(" ", "").trim().split("\n").map(row => row.split("")));
   }
 
   rotateRight() {
-    let newArr = this.getMatrixFromString()
+    let newArr = [...this.shape]
     newArr = newArr[0].map((val, index) => newArr.map(row => {
       if (row[index] !== ".") {
         return row[index]
@@ -22,7 +22,7 @@ export class RotatingShape {
   }
 
   rotateLeft() {
-    let matrix = this.getMatrixFromString();
+    let matrix = [...this.shape];
     matrix = matrix[0].map((val, index) => matrix.map(row => row[row.length-1-index]));
     return RotatingShape.fromString(this.getStringFromMatrix(matrix));
   }
@@ -38,11 +38,11 @@ export class RotatingShape {
 
   getStringFromMatrix(matrix) {
     let strings = matrix.map(row => row.join(""));
-    return strings.join("\n");
+    return strings.join("\n") + "\n";
   }
 
   toString() {
-    return this.shape;
+    return this.getStringFromMatrix(this.shape);
   }
 
 
