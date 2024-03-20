@@ -32,10 +32,12 @@ export class Board {
             this.grid[i][j] = block[i][j - jStart]
           }
         }
+      } else {
+        this.grid[0][Math.floor(this.width / 2)] = block;
+        this.movingBlock = [block, Math.floor(this.width / 2), 0];
       }
 
-      this.grid[0][Math.floor(this.width / 2)] = block;
-      this.movingBlock = [block, Math.floor(this.width / 2), 0];
+
     } else {
       throw new Error("already falling");
     }
