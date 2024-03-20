@@ -11,17 +11,15 @@ export class RotatingShape {
 
   rotateRight() {
     let newArr = this.getMatrixFromString()
-    newArr = newArr[0].map((val, index) => newArr.map(row => row[index]).reverse());
+    newArr = newArr[0].map((val, index) => newArr.map(row => {
+      if (row[index] !== ".") {
+        return row[index]
+      } else {
+        return "."
+      }
+    }).reverse());
     return RotatingShape.fromString(this.getStringFromMatrix(newArr));
   }
-  rotateRight1() {
-    let newArr = this.getMatrixFromString();
-    for (let i = 0; i < newArr.length; i++) {
-      for (let j = 0; j < this.shape[0].length; j++) {
-        if (newArr[i][j] !== ".") {
-          newArr[i][j] = newArr[j][i];
-        }}
-    }}
 
   rotateLeft() {
     let matrix = this.getMatrixFromString();
