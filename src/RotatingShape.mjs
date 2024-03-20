@@ -44,4 +44,13 @@ export class RotatingShape {
   toString() {
     return this.shape;
   }
+
+
+  printPretty() {
+    let matrix = this.getMatrixFromString(this.shape);
+    for (let i of matrix){
+      console.log(i);
+    }
+    console.log();
+  }
 }
