@@ -27,6 +27,11 @@ export class Board {
         const iStart = 0;
         const iEnd = blockHeight
 
+        for (let i = iStart; i < iEnd; i++) {
+          for (let j = jStart; j < jEnd; j++) {
+            this.grid[i][j] = block[i][j - jStart]
+          }
+        }
       }
 
       this.grid[0][Math.floor(this.width / 2)] = block;
