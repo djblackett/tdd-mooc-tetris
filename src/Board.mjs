@@ -21,6 +21,7 @@ export class Board {
   drop(block) {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
+        this.movingBlock = block;
         const blockGrid = block.shape().shape;
         const blockHeight = blockGrid.length;
         const blockWidth = blockGrid[0].length;
@@ -44,7 +45,15 @@ export class Board {
   }
 
   tick() {
-    if (this.movingBlock &&
+    if (this.movingBlock instanceof Tetromino) {
+      if (this.movingBlock.shape().length === this.height) {
+        return;
+      } else {
+
+      }
+
+    }
+    else if (this.movingBlock &&
        (this.movingBlock[2] === this.height - 1 ||
         this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".")) {
       this.movingBlock = null;
