@@ -79,6 +79,16 @@ export class Board {
     }
   }
 
+  blockAt(row, col) {
+    if (this.movingBlock) {
+      const block = this.movingBlock.blockAt(row, col);
+      if (block !== ".") {
+        return block;
+      }
+    }
+    return "."
+  }
+
   hasFalling() {
     return this.movingBlock !== null;
   }
