@@ -1,3 +1,5 @@
+import { Point } from "./Point.mjs";
+
 export class MovableBlock {
   shape;
   row;
@@ -19,7 +21,7 @@ export class MovableBlock {
     for (let i = 0; i < this.shape.length; i++) {
       for (let j = 0; j < this.shape[0].length; j++) {
         if (this.shape[i][j] !== ".") {
-          points.push(this.shape[i][j]);
+          points.push(new Point(i, j));
         }
       }
     }
