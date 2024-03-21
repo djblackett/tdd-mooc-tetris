@@ -51,15 +51,20 @@ export class Board {
       if (this.movingBlock.row + this.movingBlock.block.shape().length === this.height) {
         return;
       } else {
-        const blockGrid = block.shape().shape;
+        const blockGrid = this.movingBlock.block.shape().shape;
         const blockHeight = blockGrid.length;
         const blockWidth = blockGrid[0].length;
         const jStart = this.movingBlock.col;
         const jEnd = jStart + blockWidth;
-        const iStart = 0;
+        const iStart = this.movingBlock.row + 1;
         const iEnd = blockHeight
-      }
 
+        for (let i = iStart; i < iEnd; i++) {
+          for (let j = jStart; j < jEnd; j++) {
+            this.grid[i][j] = blockGrid[i][j - jStart]
+          }
+        }
+      }
     }
     else if (this.movingBlock &&
        (this.movingBlock[2] === this.height - 1 ||
