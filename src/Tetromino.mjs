@@ -39,6 +39,18 @@ export class Tetromino {
     return this.orientations[this.currentOrientation];
   }
 
+  getWidth() {
+    return this.shape().getWidth();
+  }
+
+  getHeight() {
+    return this.shape.getHeight();
+  }
+
+  blockAt(row, col) {
+    return this.shape().blockAt(row, col);
+  }
+
   toString() {
     return this.shape().toString();
   }
