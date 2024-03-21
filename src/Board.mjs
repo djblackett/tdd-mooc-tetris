@@ -32,8 +32,6 @@ export class Board {
         const iEnd = blockHeight
         this.movingBlock = {block, row: 0, col: jStart};
 
-
-
         for (let i = iStart; i < iEnd; i++) {
           for (let j = jStart; j < jEnd; j++) {
             this.grid[i][j] = blockGrid[i][j - jStart]
@@ -49,11 +47,17 @@ export class Board {
   }
 
   tick() {
-    if (this.movingBlock instanceof Tetromino) {
-      if (this.movingBlock.shape().length === this.height) {
+    if (this.movingBlock.block instanceof Tetromino) {
+      if (this.movingBlock.row + this.movingBlock.block.shape().length === this.height) {
         return;
       } else {
-
+        const blockGrid = block.shape().shape;
+        const blockHeight = blockGrid.length;
+        const blockWidth = blockGrid[0].length;
+        const jStart = this.movingBlock.col;
+        const jEnd = jStart + blockWidth;
+        const iStart = 0;
+        const iEnd = blockHeight
       }
 
     }
