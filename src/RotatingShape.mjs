@@ -28,6 +28,18 @@ export class RotatingShape {
     return newArr;
   }
 
+  getWidth() {
+    return this.shape[0].length
+  }
+
+  getHeight() {
+    return this.shape.length
+  }
+
+  blockAt(row, col) {
+    return this.shape[row][col];
+  }
+
   getStringFromMatrix(matrix) {
     let strings = matrix.map(row => row.join(""));
     return strings.join("\n") + "\n";
@@ -36,7 +48,6 @@ export class RotatingShape {
   toString() {
     return this.getStringFromMatrix(this.shape);
   }
-
 
   printPretty() {
     let matrix = this.getMatrixFromString(this.shape);
