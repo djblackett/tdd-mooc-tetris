@@ -9,6 +9,10 @@ export class MovableBlock {
     this.col = col;
   }
 
+  moveDown() {
+    return new MovableBlock(this.shape, this.row + 1, this.col);
+  }
+
   getFilledCoordinates() {
     const points = [];
 
