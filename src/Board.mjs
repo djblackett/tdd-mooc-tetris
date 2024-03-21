@@ -21,14 +21,18 @@ export class Board {
   drop(block) {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
-        this.movingBlock = block;
+
         const blockGrid = block.shape().shape;
         const blockHeight = blockGrid.length;
         const blockWidth = blockGrid[0].length;
-        const jStart = Math.floor(this.width / 2) - Math.floor(blockWidth / 2) - 1
+
+        const jStart = Math.floor(this.width / 2) - Math.floor(blockWidth / 2) - 1;
         const jEnd = jStart + blockWidth;
         const iStart = 0;
         const iEnd = blockHeight
+        this.movingBlock = {block, row: 0, col: jStart};
+
+
 
         for (let i = iStart; i < iEnd; i++) {
           for (let j = jStart; j < jEnd; j++) {
