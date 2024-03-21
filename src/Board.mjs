@@ -49,7 +49,8 @@ export class Board {
   tick() {
     if (this.movingBlock.block instanceof Tetromino) {
       if (this.movingBlock.row + this.movingBlock.block.shape().length === this.height) {
-        return;
+        console.log("At bottom - stopped moving");
+          return;
       } else {
         const blockGrid = this.movingBlock.block.shape().shape;
         const blockHeight = blockGrid.length;
@@ -89,5 +90,9 @@ export class Board {
 
   printPretty() {
     console.table(this.grid);
+    console.log();
   }
 }
+
+
+
