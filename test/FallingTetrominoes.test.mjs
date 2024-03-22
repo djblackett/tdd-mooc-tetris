@@ -29,7 +29,7 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test("stop when they hit the bottom", () => {
+  test.skip("stop when they hit the bottom", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
 

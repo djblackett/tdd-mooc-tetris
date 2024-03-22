@@ -17,10 +17,10 @@ export class MovableBlock {
 
   getFilledCoordinates() {
     const points = [];
-
-    for (let i = 0; i < this.shape.length; i++) {
-      for (let j = 0; j < this.shape[0].length; j++) {
-        if (this.shape[i][j] !== ".") {
+    const shapey = this.shape.shape;
+    for (let i = 0; i < shapey.length; i++) {
+      for (let j = 0; j < shapey[0].length; j++) {
+        if (shapey[i][j] !== ".") {
           points.push(new Point(i, j));
         }
       }

@@ -22,14 +22,16 @@ export class Board {
   drop(block) {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
+        console.log("Inside Tetromino block of drop()");
         const newBlock = new MovableBlock(block.shape(), 0, Math.floor(this.width - block.getWidth() / 2))
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
         const points = newBlock.getFilledCoordinates();
 
         for (let point of points) {
-          // this.grid[point.y][point.x] =
+            this.grid[point.row][point.col + block.getWidth()] = block.blockAt(point.row, point.col)
         }
+
 
         const blockGrid = block.shape().shape;
         const blockHeight = blockGrid.length;
