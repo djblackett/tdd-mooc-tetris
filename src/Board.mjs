@@ -1,4 +1,5 @@
 import { Tetromino } from "./Tetromino.mjs";
+import { MovableBlock } from "./MovableBlock.mjs";
 export class Board {
   width;
   height;
@@ -21,6 +22,14 @@ export class Board {
   drop(block) {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
+        const newBlock = new MovableBlock(block.shape(), 0, Math.floor(this.width - block.getWidth() / 2))
+        this.blocks.push(newBlock);
+        this.movingBlock = newBlock;
+        const points = newBlock.getFilledCoordinates();
+
+        for (let point of points) {
+          // this.grid[point.y][point.x] =
+        }
 
         const blockGrid = block.shape().shape;
         const blockHeight = blockGrid.length;
@@ -30,7 +39,7 @@ export class Board {
         const jEnd = jStart + blockWidth;
         const iStart = 0;
         const iEnd = blockHeight
-        this.movingBlock = {block, row: 0, col: jStart};
+
 
         for (let i = iStart; i < iEnd; i++) {
           for (let j = jStart; j < jEnd; j++) {
