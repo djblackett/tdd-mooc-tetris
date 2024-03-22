@@ -32,13 +32,6 @@ export class Board {
             this.grid[point.row][point.col + block.getWidth()] = block.blockAt(point.row, point.col)
         }
 
-
-        const blockGrid = block.shape().shape;
-        const blockHeight = blockGrid.length;
-        const blockWidth = blockGrid[0].length;
-
-        const jStart = Math.floor(this.width / 2) - Math.floor(blockWidth / 2) - 1;
-
       } else {
         this.grid[0][Math.floor(this.width / 2)] = block;
         this.movingBlock = [block, Math.floor(this.width / 2), 0];
