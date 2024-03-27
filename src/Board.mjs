@@ -46,14 +46,6 @@ export class Board {
       if (this.movingBlock.row + this.movingBlock.block.shape().length === this.height) {
         console.log("At bottom - stopped moving");
           return;
-      } else {
-        const blockGrid = this.movingBlock.block.shape().shape;
-        const blockHeight = blockGrid.length;
-        const blockWidth = blockGrid[0].length;
-        const jStart = this.movingBlock.col;
-        const jEnd = jStart + blockWidth;
-        const iStart = this.movingBlock.row + 1;
-        const iEnd = blockHeight
       }
     }
     else if (this.movingBlock &&
