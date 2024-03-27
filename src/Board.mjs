@@ -46,6 +46,8 @@ export class Board {
       if (this.movingBlock.row + this.movingBlock.block.shape().length === this.height) {
         console.log("At bottom - stopped moving");
           return;
+      } else {
+        this.movingBlock.moveDown();
       }
     }
 
