@@ -87,6 +87,14 @@ export class Board {
     console.table(this.grid);
     console.log();
   }
+
+  applyBlocks() {
+    for (let block of this.blocks) {
+      for (let point of block.getFilledCoordinates()) {
+        this.grid[point.row][point.col] = this.blockAt(point.row, point.col)
+      }
+    }
+  }
 }
 
 // const board = new Board(10, 6);
