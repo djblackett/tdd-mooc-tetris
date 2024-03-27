@@ -77,6 +77,16 @@ export class Board {
     }
   }
 
+  // Translates block positions from MovableBlock's local coordinate system to the Board's
+  mapBlockPositions(movableBlock) {
+    const mappedPositions = [];
+    const blockPositions = movableBlock.getFilledCoordinates(); // this returns local positions
+    blockPositions.forEach(pos => {
+      const mappedX = movableBlock.col + pos.x; // Translate X position
+      const mappedY = movableBlock.row + pos.y; // Translate Y position
+    })
+  }
+
   blockAt(row, col) {
     if (this.movingBlock) {
       const block = this.movingBlock.blockAt(row, col);
