@@ -6,4 +6,8 @@ export class Point {
     this.row = row;
     this.col = col;
   }
+
+  toString() {
+    return JSON.stringify({row: this.row, col: this.col});
+  }
 }
