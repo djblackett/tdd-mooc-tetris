@@ -48,9 +48,15 @@ export class Board {
         console.log("At bottom - stopped moving");
       } else {
         const newBlock = this.movingBlock.moveDown();
-        this.blocks.pop();
-        this.blocks.push(newBlock);
-        this.movingBlock = newBlock
+        let valid;
+        for (let i = newBlock.col; i < newBlock.col + newBlock.shape.getWidth(); i++) {
+         valid = this.isValidPosition(i, newBlock.row)
+        }
+        if (valid) {
+          this.blocks.pop();
+          this.blocks.push(newBlock);
+          this.movingBlock = newBlock
+        }
       }
     }
 

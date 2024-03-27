@@ -4,7 +4,7 @@ export class MovableBlock {
   shape; // RotatingShape obj
   row;
   col;
-  symbol = "T"
+  symbol;
 
   constructor(shape, row, col, boardWidth, boardHeight) {
     this.shape = shape;
