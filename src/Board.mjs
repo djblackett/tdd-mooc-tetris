@@ -108,10 +108,16 @@ export class Board {
   }
 
   moveDown() {
-    const oldBlock =    this.blocks.pop();
-    const newBlock = this.movingBlock.moveDown();
-    this.blocks.push(newBlock);
-    this.movingBlock = newBlock
+    if (this.movingBlock) {
+      const oldBlock = this.blocks.pop();
+      const newBlock = this.movingBlock.moveDown();
+      if (newBlock.row + newBlock.shape.getHeight() <= this.height + 1) {
+        this.blocks.push(newBlock);
+        this.movingBlock = newBlock
+      } else {
+        this.blocks.push(oldBlock);
+      }
+    }
   }
 
   isValidPosition(x, y) {
