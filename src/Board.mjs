@@ -24,7 +24,7 @@ export class Board {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
         console.log("Inside Tetromino block of drop()");
-        const newBlock = new MovableBlock(block.shape(), 0, Math.floor(this.width - block.getWidth() / 2))
+        const newBlock = new MovableBlock(block.shape(), 0, Math.floor(this.width - block.getWidth() / 2), this.width, this.height)
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
         const points = newBlock.getFilledCoordinates();

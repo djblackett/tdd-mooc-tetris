@@ -5,14 +5,16 @@ export class MovableBlock {
   row;
   col;
 
-  constructor(shape, row, col) {
+  constructor(shape, row, col, boardWidth, boardHeight) {
     this.shape = shape;
     this.row = row;
     this.col = col;
+    this.boardWidth = boardWidth;
+    this.boardHeight = boardHeight;
   }
 
   moveDown() {
-    return new MovableBlock(this.shape, this.row + 1, this.col);
+    return new MovableBlock(this.shape, this.row + 1, this.col, this.boardWidth, this.boardHeight);
   }
 
   getFilledCoordinates() {
