@@ -54,12 +54,6 @@ export class Board {
         const jEnd = jStart + blockWidth;
         const iStart = this.movingBlock.row + 1;
         const iEnd = blockHeight
-
-        for (let i = iStart; i < iEnd; i++) {
-          for (let j = jStart; j < jEnd; j++) {
-            this.grid[i][j] = blockGrid[i][j - jStart]
-          }
-        }
       }
     }
     else if (this.movingBlock &&
