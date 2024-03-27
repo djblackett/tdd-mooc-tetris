@@ -7,6 +7,7 @@ export class Board {
   blocks = [];
   grid = []
   movingBlock = null;
+  legacy = true;
 
   constructor(width, height) {
     this.width = width;
@@ -23,6 +24,7 @@ export class Board {
   drop(block) {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
+        this.legacy = false;
         console.log("Inside Tetromino block of drop()");
         const newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
         this.blocks.push(newBlock);
