@@ -168,9 +168,3 @@ export class Board {
   }
 }
 
-// const board = new Board(10, 6);
-// board.drop(Tetromino.T_SHAPE)
-// board.printPretty()
-// board.tick()
-// board.printPretty()
-
