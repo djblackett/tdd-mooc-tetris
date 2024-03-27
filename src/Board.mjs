@@ -99,6 +99,13 @@ export class Board {
     }
   }
 
+  moveDown() {
+    const oldBlock =    this.blocks.pop();
+    const newBlock = this.movingBlock.moveDown();
+    this.blocks.push(newBlock);
+    this.movingBlock = newBlock
+  }
+
   isValidPosition(x, y) {
     // Check if (x, y) is within the board's bounds and not occupied
     if (x >= 0 && y >= 0 && x < this.width && y < this.height) {
