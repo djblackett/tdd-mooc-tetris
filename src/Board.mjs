@@ -91,9 +91,16 @@ export class Board {
     }
   }
 
-  canBlockMove(block) {
-    for (let i = block.col; i < block.col + block.shape.getWidth(); i++) {
-      if (!this.isValidPosition(i, block.row)) {
+  canBlockMove(testBlock) {
+    const blockSet = new Map()
+    for (let block of this.blocks) {
+      for (let point of block.getFilledCoordinates()) {
+        blockSet.set(point.toString(), point);
+      }
+    }
+    console.log(blockSet);
+    for (let point of testBlock.getFilledCoordinates()) {
+      if (blockSet.has(point.toString())) {
         return false;
       }
     }
