@@ -42,25 +42,28 @@ export class Board {
   }
 
   tick() {
-    if (this.movingBlock.block instanceof Tetromino) {
-      if (this.movingBlock.row + this.movingBlock.block.shape().length === this.height) {
+    if (this.movingBlock instanceof MovableBlock) {
+      if (this.movingBlock.row + this.movingBlock.shape.shape.length === this.height - 1) {
         console.log("At bottom - stopped moving");
           return;
       } else {
         this.movingBlock.moveDown();
       }
-    }
+    } else {
 
     // legacy code for passing early tests
-    else if (this.movingBlock &&
-       (this.movingBlock[2] === this.height - 1 ||
-        this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".")) {
+    // if (typeof this.movingBlock.block === "string"
+      // && !this.movingBlock.block instanceof Tetromino
+      // &&
+       if (this.movingBlock[2] >= this.height - 1 ||
+        this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".") {
       this.movingBlock = null;
     }
-    else if (this.movingBlock) {
+    else if (this.movingBlock && this.movingBlock instanceof Array && this.movingBlock.length >= 3) {
       this.grid[this.movingBlock[2]][this.movingBlock[1]] = ".";
       this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] = this.movingBlock[0];
       this.movingBlock[2]++;
+    }
     }
   }
 
