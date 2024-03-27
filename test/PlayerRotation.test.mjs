@@ -21,4 +21,21 @@ describe("Moving tetrominoes", () => {
        ..........`
     );
   })
+
+  test("it cannot be rotated when there is no room to rotate", () => {
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.rotate()
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ....T.....
+       ...TTT....`
+    );
+  })
 })
