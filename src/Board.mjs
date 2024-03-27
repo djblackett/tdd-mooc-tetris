@@ -45,11 +45,12 @@ export class Board {
     if (this.movingBlock instanceof MovableBlock) {
       if (this.movingBlock.row + this.movingBlock.shape.shape.length === this.height - 1) {
         console.log("At bottom - stopped moving");
-        return;
       } else {
         this.movingBlock.moveDown();
       }
-    } else {
+    }
+
+    else {
 
       // legacy code for passing early tests
       if (this.movingBlock[2] >= this.height - 1 ||
