@@ -53,14 +53,16 @@ export class Board {
         console.log("At bottom - stopped moving");
         this.movingBlock = null;
       } else {
-
+        const oldBlock =    this.blocks.pop();
         const newBlock = this.movingBlock.moveDown();
         const valid = this.canBlockMove(newBlock);
 
         if (valid) {
-          this.blocks.pop();
+
           this.blocks.push(newBlock);
           this.movingBlock = newBlock
+        } else {
+          this.blocks.push(oldBlock)
         }
       }
     }
@@ -135,6 +137,7 @@ export class Board {
   }
 
   printPretty() {
+    this.resetGrid()
     this.applyBlocks()
     console.table(this.grid);
     console.log();
@@ -147,6 +150,11 @@ export class Board {
       }
     }
   }
+  resetGrid() {
+    for (let i = 0; i < this.height; i++) {
+      this.grid[i] = [];
+      for (let j = 0; j < this.width; j++) {
+        this.grid[i][j] = ".";}}}
 }
 
 // const board = new Board(10, 6);
