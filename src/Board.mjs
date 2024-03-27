@@ -81,6 +81,15 @@ export class Board {
     }
   }
 
+  moveLeft() {
+    if (this.movingBlock) {
+      const oldBlock =    this.blocks.pop();
+      const newBlock = this.movingBlock.moveLeft();
+      this.blocks.push(newBlock);
+      this.movingBlock = newBlock
+    }
+  }
+
   isValidPosition(x, y) {
     // Check if (x, y) is within the board's bounds and not occupied
     if (x >= 0 && y >= 0 && x < this.width && y < this.height) {
