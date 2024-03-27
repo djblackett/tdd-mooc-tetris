@@ -82,4 +82,21 @@ describe("Moving tetrominoes", () => {
        ..........`
     );
   })
+
+  test("it cannot be moved down beyond the board (will stop falling)", () => {})
+  board.moveDown()
+  board.moveDown()
+  board.moveDown()
+  board.moveDown()
+  board.moveDown()
+
+  expect(board.toString()).to.equalShape(
+    `..........
+     ..........
+     ..........
+     ..........
+     ....T.....
+     ...TTT....`
+  );
+
   })
