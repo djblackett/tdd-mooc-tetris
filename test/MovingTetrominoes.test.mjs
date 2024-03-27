@@ -137,6 +137,7 @@ describe("Moving tetrominoes", () => {
     board.moveRight()
     board.moveRight()
     board.moveRight()
+    board.moveRight()
     board.moveDown()
     board.moveDown()
     board.moveDown()
@@ -146,6 +147,7 @@ describe("Moving tetrominoes", () => {
     board.moveRight()
     board.moveRight()
     board.moveRight()
+    board.moveRight() 
     board.moveDown()
     board.moveDown()
     board.moveDown()
@@ -153,6 +155,7 @@ describe("Moving tetrominoes", () => {
     board.drop(Tetromino.T_SHAPE)
     board.moveDown()
     board.moveDown()
+    board.moveRight()
     board.moveRight()
     board.moveRight()
 
