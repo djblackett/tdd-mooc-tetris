@@ -29,7 +29,7 @@ export class Board {
         const points = newBlock.getFilledCoordinates();
 
         for (let point of points) {
-            this.grid[point.row][point.col + block.getWidth()] = block.blockAt(point.row, point.col)
+          this.grid[point.row][point.col + block.getWidth()] = block.blockAt(point.row, point.col)
         }
 
       } else {
@@ -45,22 +45,21 @@ export class Board {
     if (this.movingBlock instanceof MovableBlock) {
       if (this.movingBlock.row + this.movingBlock.shape.shape.length === this.height - 1) {
         console.log("At bottom - stopped moving");
-          return;
+        return;
       } else {
         this.movingBlock.moveDown();
       }
     } else {
 
-    // legacy code for passing early tests
-       if (this.movingBlock[2] >= this.height - 1 ||
+      // legacy code for passing early tests
+      if (this.movingBlock[2] >= this.height - 1 ||
         this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".") {
-      this.movingBlock = null;
-    }
-    else if (this.movingBlock && this.movingBlock instanceof Array && this.movingBlock.length >= 3) {
-      this.grid[this.movingBlock[2]][this.movingBlock[1]] = ".";
-      this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] = this.movingBlock[0];
-      this.movingBlock[2]++;
-    }
+        this.movingBlock = null;
+      } else if (this.movingBlock && this.movingBlock instanceof Array && this.movingBlock.length >= 3) {
+        this.grid[this.movingBlock[2]][this.movingBlock[1]] = ".";
+        this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] = this.movingBlock[0];
+        this.movingBlock[2]++;
+      }
     }
   }
 
