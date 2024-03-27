@@ -164,7 +164,7 @@ describe("Moving tetrominoes", () => {
        ..........
        .....T..T.
        ....TTTTTT
-       .........T
+       ........T.
        .......TTT`
     );
   })
