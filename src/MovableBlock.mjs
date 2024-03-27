@@ -17,6 +17,12 @@ export class MovableBlock {
     return new MovableBlock(this.shape, this.row + 1, this.col, this.boardWidth, this.boardHeight);
   }
 
+  isValid(x, y) {
+    if (x >= 0 && y >= 0 && x < this.boardWidth && y < this.boardHeight) {
+      return true;
+    }
+  }
+
   getFilledCoordinates() {
     const points = [];
     const shape = this.shape.shape;
