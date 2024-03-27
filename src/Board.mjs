@@ -47,11 +47,10 @@ export class Board {
       if (this.movingBlock.row + this.movingBlock.shape.getHeight() > this.height) {
         console.log("At bottom - stopped moving");
       } else {
+
         const newBlock = this.movingBlock.moveDown();
-        let valid;
-        for (let i = newBlock.col; i < newBlock.col + newBlock.shape.getWidth(); i++) {
-         valid = this.isValidPosition(i, newBlock.row)
-        }
+        const valid = this.canBlockMove(newBlock);
+
         if (valid) {
           this.blocks.pop();
           this.blocks.push(newBlock);
