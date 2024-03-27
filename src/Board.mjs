@@ -84,6 +84,15 @@ export class Board {
     }
   }
 
+  canBlockMove(block) {
+    for (let i = block.col; i < block.col + block.shape.getWidth(); i++) {
+      if (!this.isValidPosition(i, block.row)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   // Translates block positions from MovableBlock's local coordinate system to the Board's
   mapBlockPositions(movableBlock) {
     const mappedPositions = [];
