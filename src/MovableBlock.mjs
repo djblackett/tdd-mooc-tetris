@@ -1,9 +1,10 @@
 import { Point } from "./Point.mjs";
 
 export class MovableBlock {
-  shape;
+  shape; // RotatingShape obj
   row;
   col;
+  symbol = "T"
 
   constructor(shape, row, col, boardWidth, boardHeight) {
     this.shape = shape;
@@ -11,6 +12,8 @@ export class MovableBlock {
     this.col = col;
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
+
+
   }
 
   moveDown() {
