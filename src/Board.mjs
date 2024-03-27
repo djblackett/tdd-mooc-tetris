@@ -120,6 +120,7 @@ export class Board {
       }
     }
   }
+
   rotate() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
@@ -128,7 +129,10 @@ export class Board {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
       } else {
-        this.blocks.push(oldBlock);}}}
+        this.blocks.push(oldBlock);
+      }
+    }
+  }
 
   isValidPosition(x, y) {
     // Check if (x, y) is within the board's bounds and not occupied
