@@ -150,11 +150,15 @@ export class Board {
       }
     }
   }
+
   resetGrid() {
     for (let i = 0; i < this.height; i++) {
       this.grid[i] = [];
       for (let j = 0; j < this.width; j++) {
-        this.grid[i][j] = ".";}}}
+        this.grid[i][j] = ".";
+      }
+    }
+  }
 }
 
 // const board = new Board(10, 6);
