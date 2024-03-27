@@ -13,7 +13,14 @@ export class MovableBlock {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
 
-
+    for (let i = 0; i < shape.getHeight(); i++) {
+      for (let j = 0; j < shape.getWidth(); j++) {
+        if (shape.shape[i][j] !== ".") {
+          this.symbol = shape.shape[i][j];
+          break;
+        }
+      }
+    }
   }
 
   moveDown() {
