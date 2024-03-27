@@ -52,9 +52,6 @@ export class Board {
     } else {
 
     // legacy code for passing early tests
-    // if (typeof this.movingBlock.block === "string"
-      // && !this.movingBlock.block instanceof Tetromino
-      // &&
        if (this.movingBlock[2] >= this.height - 1 ||
         this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".") {
       this.movingBlock = null;
