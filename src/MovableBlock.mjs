@@ -36,11 +36,13 @@ export class MovableBlock {
   getFilledCoordinates() {
     const points = [];
     const shape = this.shape.shape;
-    for (let i = this.row; i < this.row + this.shape.getHeight(); i++) {
-      for (let j = this.col; j < this.col + this.shape.getWidth(); j++) {
-        let block = shape[i][j]
-        if (block !== ".") {
-          points.push(new Point(i - this.row, j - this.col));
+    for (let i = 0; i < this.shape.getHeight(); i++) {
+      for (let j = 0; j < this.shape.getWidth(); j++) {
+        if (this.isValid(j, i)) {
+          let block = shape[i][j]
+          if (block !== ".") {
+            points.push(new Point(i + this.row, j + this.col));
+          }
         }
       }
     }

@@ -30,7 +30,7 @@ export class Board {
         const points = newBlock.getFilledCoordinates();
 
         for (let point of points) {
-          this.grid[point.row][point.col + block.getWidth()] = block.blockAt(point.row, point.col)
+          this.grid[point.row][point.col] = newBlock.symbol
         }
 
       } else {
@@ -44,7 +44,7 @@ export class Board {
 
   tick() {
     if (this.movingBlock instanceof MovableBlock) {
-      if (this.movingBlock.row + this.movingBlock.shape.shape.length === this.height - 1) {
+      if (this.movingBlock.row + this.movingBlock.shape.getHeight() > this.height) {
         console.log("At bottom - stopped moving");
       } else {
         const newBlock = this.movingBlock.moveDown();
@@ -123,7 +123,7 @@ export class Board {
   applyBlocks() {
     for (let block of this.blocks) {
       for (let point of block.getFilledCoordinates()) {
-        this.grid[point.row][point.col + block.shape.getWidth()] = block.shape.blockAt(point.row, point.col)
+        this.grid[point.row][point.col] = block.symbol
       }
     }
   }
