@@ -46,7 +46,10 @@ export class Board {
       if (this.movingBlock.row + this.movingBlock.shape.shape.length === this.height - 1) {
         console.log("At bottom - stopped moving");
       } else {
-        this.movingBlock.moveDown();
+        const newBlock = this.movingBlock.moveDown();
+        this.blocks.pop();
+        this.blocks.push(newBlock);
+        this.movingBlock = newBlock
       }
     }
 
@@ -79,11 +82,13 @@ export class Board {
   }
 
   toString() {
+    this.applyBlocks()
     let strings = this.grid.map(row => row.join(""));
     return strings.join("\n") + "\n";
   }
 
   printPretty() {
+    this.applyBlocks()
     console.table(this.grid);
     console.log();
   }
@@ -91,7 +96,7 @@ export class Board {
   applyBlocks() {
     for (let block of this.blocks) {
       for (let point of block.getFilledCoordinates()) {
-        this.grid[point.row][point.col] = this.blockAt(point.row, point.col)
+        this.grid[point.row][point.col + block.shape.getWidth()] = block.shape.blockAt(point.row, point.col)
       }
     }
   }
