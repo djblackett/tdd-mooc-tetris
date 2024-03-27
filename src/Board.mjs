@@ -29,9 +29,9 @@ export class Board {
         this.movingBlock = newBlock;
         const points = newBlock.getFilledCoordinates();
 
-        for (let point of points) {
-          this.grid[point.row][point.col] = newBlock.symbol
-        }
+        // for (let point of points) {
+        //   this.grid[point.row][point.col] = newBlock.symbol
+        // }
 
       } else {
         this.grid[0][Math.floor(this.width / 2)] = block;
