@@ -48,6 +48,8 @@ export class Board {
           return;
       }
     }
+
+    // legacy code for passing early tests
     else if (this.movingBlock &&
        (this.movingBlock[2] === this.height - 1 ||
         this.grid[this.movingBlock[2] + 1][this.movingBlock[1]] !== ".")) {
