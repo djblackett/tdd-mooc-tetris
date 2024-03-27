@@ -31,6 +31,10 @@ export class MovableBlock {
     return new MovableBlock(this.shape, this.row, this.col - 1, this.boardWidth, this.boardHeight);
   }
 
+  moveRight() {
+    return new MovableBlock(this.shape, this.row, this.col + 1, this.boardWidth, this.boardHeight);
+  }
+
   isValid(x, y) {
     if (x >= 0 && y >= 0 && x < this.boardWidth && y < this.boardHeight) {
       return true;
