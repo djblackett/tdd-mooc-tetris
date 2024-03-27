@@ -132,4 +132,37 @@ describe("Moving tetrominoes", () => {
        TTT.......`
     );
   })
+
+  test("it cannot be moved right through other blocks", () => {
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.drop(Tetromino.T_SHAPE)
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.drop(Tetromino.T_SHAPE)
+    board.moveDown()
+    board.moveDown()
+    board.moveRight()
+    board.moveRight()
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       .....T..T.
+       ....TTTTTT
+       .........T
+       .......TTT`
+    );
+  })
 })
