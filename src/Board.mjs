@@ -83,10 +83,14 @@ export class Board {
 
   moveLeft() {
     if (this.movingBlock) {
-      const oldBlock =    this.blocks.pop();
+      const oldBlock = this.blocks.pop();
       const newBlock = this.movingBlock.moveLeft();
-      this.blocks.push(newBlock);
-      this.movingBlock = newBlock
+      if (newBlock.col >= 0) {
+        this.blocks.push(newBlock);
+        this.movingBlock = newBlock
+      } else {
+        this.blocks.push(oldBlock);
+      }
     }
   }
 
