@@ -98,7 +98,7 @@ export class Board {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
       const newBlock = this.movingBlock.moveRight();
-      if (newBlock.col + newBlock.shape.getWidth() <= this.width) {
+      if (newBlock.col + newBlock.shape.getWidth() <= this.width && this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
       } else {
