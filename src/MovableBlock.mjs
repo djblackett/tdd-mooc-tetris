@@ -34,6 +34,7 @@ export class MovableBlock {
   moveRight() {
     return new MovableBlock(this.shape, this.row, this.col + 1, this.boardWidth, this.boardHeight);
   }
+
   rotateRight() {
     return new MovableBlock(this.shape.rotateRight(), this.row, this.col, this.boardWidth, this.boardHeight);
   }

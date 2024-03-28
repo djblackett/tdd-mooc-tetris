@@ -25,7 +25,6 @@ export class Board {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
         this.legacy = false;
-        console.log("Inside Tetromino block of drop()");
         const newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
@@ -111,7 +110,7 @@ export class Board {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
       const newBlock = this.movingBlock.moveDown();
-      if (newBlock.row + newBlock.shape.getHeight() <= this.height + 1 && this.canBlockMove(newBlock)) {
+      if (this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
       } else {
@@ -151,11 +150,15 @@ export class Board {
         blockSet.set(point.toString(), point);
       }
     }
-    console.log(blockSet);
     for (let point of testBlock.getFilledCoordinates()) {
       if (blockSet.has(point.toString())) {
         return false;
       }
+
+      if (point.row === this.height) {
+        return false;
+      }
+
     }
     return true;
   }
@@ -206,7 +209,7 @@ export class Board {
   applyBlocks() {
     for (let block of this.blocks) {
       for (let point of block.getFilledCoordinates()) {
-        this.grid[point.row][point.col] = block.symbol
+          this.grid[point.row][point.col] = block.symbol
       }
     }
   }
