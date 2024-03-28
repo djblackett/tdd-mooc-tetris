@@ -105,7 +105,6 @@ export class Board {
       }
     }
   }
-
   moveDown() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
@@ -119,6 +118,16 @@ export class Board {
       }
     }
   }
+  moveUp() {
+    if (this.movingBlock) {
+      const oldBlock = this.blocks.pop();
+      const newBlock = this.movingBlock.moveDown();
+      if (this.canBlockMove(newBlock)) {
+        this.blocks.push(newBlock);
+        this.movingBlock = newBlock
+      } else {
+        this.blocks.push(oldBlock);
+        this.movingBlock = null;}}}
 
   rotate() {
     if (this.movingBlock) {
