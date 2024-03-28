@@ -118,6 +118,7 @@ export class Board {
       }
     }
   }
+
   moveUp() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
@@ -127,7 +128,10 @@ export class Board {
         this.movingBlock = newBlock
       } else {
         this.blocks.push(oldBlock);
-        this.movingBlock = null;}}}
+        this.movingBlock = null;
+      }
+    }
+  }
 
   rotate() {
     if (this.movingBlock) {
