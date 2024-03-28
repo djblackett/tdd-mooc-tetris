@@ -28,12 +28,6 @@ export class Board {
         const newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
-        // const points = newBlock.getFilledCoordinates();
-
-        // for (let point of points) {
-        //   this.grid[point.row][point.col] = newBlock.symbol
-        // }
-
       } else {
         this.grid[0][Math.floor(this.width / 2)] = block;
         this.movingBlock = [block, Math.floor(this.width / 2), 0];
