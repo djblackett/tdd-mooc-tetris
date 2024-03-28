@@ -52,13 +52,25 @@ describe("Moving tetrominoes", () => {
     "from the wall if possible", () => {
 
     test("will perform a left wall kick", () => {
+      board.rotate()
+      board.moveLeft()
+      board.moveLeft()
+      board.moveLeft()
+      board.moveLeft()
+      board.rotate()
 
-
+      expect(board.toString()).to.equalShape(
+        `....T.....
+       ....TT....
+       ....T.....
+       ..........
+       ..........
+       ..........`
+      );
     })
 
 
     test("will perform a bottom wall kick", () => {
-      board.moveDown()
       board.moveDown()
       board.moveDown()
       board.moveDown()
