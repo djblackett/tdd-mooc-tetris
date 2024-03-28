@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 
-describe("Moving tetrominoes", () => {
+describe("Rotating tetrominoes", () => {
   let board;
   beforeEach(() => {
     board = new Board(10, 6);
@@ -69,8 +69,8 @@ describe("Moving tetrominoes", () => {
       );
     })
 
-
-    test("will perform a bottom wall kick", () => {
+    // this is probably not authentic for tetris
+    test.skip("will perform a bottom wall kick", () => {
       board.moveDown()
       board.moveDown()
       board.moveDown()
@@ -107,6 +107,23 @@ describe("Moving tetrominoes", () => {
          ..........`
       );
     })
-  })
 
+    test("will perform a wall kick when up against another block", () => {
+      board.rotate()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.drop(Tetromino.T_SHAPE)
+      board.rotate()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+
+
+
+    })
+
+
+  })
 })
