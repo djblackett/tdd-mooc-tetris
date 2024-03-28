@@ -27,6 +27,10 @@ export class MovableBlock {
     return new MovableBlock(this.shape, this.row + 1, this.col, this.boardWidth, this.boardHeight);
   }
 
+  moveUp() {
+    return new MovableBlock(this.shape, this.row - 1, this.col, this.boardWidth, this.boardHeight);
+  }
+
   moveLeft() {
     return new MovableBlock(this.shape, this.row, this.col - 1, this.boardWidth, this.boardHeight);
   }
