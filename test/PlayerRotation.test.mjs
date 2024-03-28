@@ -95,6 +95,7 @@ describe("Moving tetrominoes", () => {
       board.moveRight()
       board.moveRight()
       board.moveRight()
+      board.moveRight()
       board.rotate()
 
       expect(board.toString()).to.equalShape(
