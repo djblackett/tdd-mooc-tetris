@@ -48,23 +48,32 @@ describe("Moving tetrominoes", () => {
     );
   })
 
-  test("when it is up against a wall (or other blocks) and is rotated, but there is no room to rotate, move it away " +
+  describe("when it is up against a wall (or other blocks) and is rotated, but there is no room to rotate, move it away " +
     "from the wall if possible", () => {
 
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.rotate()
+    test("will perform a left wall kick", () => {
 
-    expect(board.toString()).to.equalShape(
-      `..........
+
+    })
+
+
+    test("will perform a bottom wall kick", () => {
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.rotate()
+
+      expect(board.toString()).to.equalShape(
+        `..........
        ..........
        ..........
        ....T.....
        ....TT....
        ....T.....`
-    );
+      );
+
+    })
 
   })
 
