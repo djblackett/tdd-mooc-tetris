@@ -99,6 +99,7 @@ export class Board {
       }
     }
   }
+
   moveDown() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
@@ -139,6 +140,10 @@ export class Board {
 
       else if (!this.canBlockMove(newBlock) && newBlock.col === 0) {
         this.moveRight(newBlock);
+      }
+
+      else if (!this.canBlockMove(newBlock) && newBlock.row + newBlock.shape.getHeight() >= this.height) {
+        this.moveUp(newBlock);
       }
 
       else {
