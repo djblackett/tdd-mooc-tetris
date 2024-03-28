@@ -28,7 +28,7 @@ export class Board {
         const newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
-        const points = newBlock.getFilledCoordinates();
+        // const points = newBlock.getFilledCoordinates();
 
         // for (let point of points) {
         //   this.grid[point.row][point.col] = newBlock.symbol
@@ -127,7 +127,14 @@ export class Board {
       if (this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
-      } else {
+
+      }
+
+      else if (!this.canBlockMove(newBlock) && newBlock.col === 0) {
+        this.moveRight(newBlock);
+      }
+
+      else {
         this.blocks.push(oldBlock);
       }
     }
