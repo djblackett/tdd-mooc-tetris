@@ -122,7 +122,7 @@ export class Board {
   moveUp() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
-      const newBlock = this.movingBlock.moveDown();
+      const newBlock = this.movingBlock.moveUp();
       if (this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
