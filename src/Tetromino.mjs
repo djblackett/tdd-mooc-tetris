@@ -74,6 +74,12 @@ export class Tetromino {
     switch (initialShape) {
       case Tetromino.T_SHAPE[2]:
         orientation = Tetromino.T_ORIENTATIONS
+        break;
+      case Tetromino.I_SHAPE[2]:
+        orientation = Tetromino.I_ORIENTATIONS
+        break;
+      case Tetromino.O_SHAPE[2]:
+        orientation = Tetromino.O_ORIENTATIONS
     }
   }
 
