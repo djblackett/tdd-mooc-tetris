@@ -141,6 +141,13 @@ export class Board {
       else {
         const rightBlock = rotatedBlock.moveRight()
         const leftBlock = rotatedBlock.moveLeft()
+        if (this.canBlockMove(rightBlock)) {
+          this.blocks.push(rightBlock);
+          this.movingBlock = rightBlock
+        } else if (this.canBlockMove(leftBlock)) {
+          this.blocks.push(leftBlock);
+          this.movingBlock = leftBlock
+        }
         this.blocks.push(oldBlock);
       }
     }
