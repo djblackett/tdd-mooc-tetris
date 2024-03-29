@@ -74,13 +74,13 @@ export class Tetromino {
     let orientations;
     switch (initialShape) {
       case `.T.\nTTT\n...`:
-        orientations = Tetromino.T_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+        orientations = T_ORIENTATIONS.map(t => RotatingShape.fromString(t))
         break;
       case `.....\n.....\nIIII.\n.....\n.....`:
-        orientations = Tetromino.I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+        orientations = I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
         break;
       case `....\n.OO.\n.OO.\n....`:
-        orientations = Tetromino.O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+        orientations = O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
     console.log("Orientations:", orientations);
     return new Tetromino(currentOrientation, orientations);
