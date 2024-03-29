@@ -27,6 +27,10 @@ export class Tetromino {
        .....
        .....`);
 
+  static I_ORIENTATIONS = [
+
+  ]
+
   static O_SHAPE = Tetromino.fromString(0, 1, `.OO
        .OO
        ...`);
