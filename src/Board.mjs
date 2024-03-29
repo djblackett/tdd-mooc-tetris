@@ -139,6 +139,8 @@ export class Board {
 
 
       else {
+        const rightBlock = rotatedBlock.moveRight()
+        const leftBlock = rotatedBlock.moveLeft()
         this.blocks.push(oldBlock);
       }
     }
