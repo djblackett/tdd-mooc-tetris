@@ -131,10 +131,10 @@ export class Board {
   rotate() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
-      const newBlock = this.movingBlock.rotateRight()
-      if (this.canBlockMove(newBlock)) {
-        this.blocks.push(newBlock);
-        this.movingBlock = newBlock
+      const rotatedBlock = this.movingBlock.rotateRight()
+      if (this.canBlockMove(rotatedBlock)) {
+        this.blocks.push(rotatedBlock);
+        this.movingBlock = rotatedBlock
       }
 
 
