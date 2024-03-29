@@ -146,10 +146,6 @@ export class Board {
         this.moveLeft(newBlock);
       }
 
-      else if (!this.canBlockMove(newBlock) && newBlock.row + newBlock.shape.getHeight() >= this.height) {
-        this.moveUp(newBlock);
-        this.rotate(this.movingBlock)
-      }
 
       else {
         this.blocks.push(oldBlock);
