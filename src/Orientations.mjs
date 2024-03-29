@@ -12,3 +12,13 @@ const T_ORIENTATIONS = [
      .TT
      .T.`
 ]
+const I_ORIENTATIONS = [
+  `....
+     IIII
+     ....
+     ....`,
+  `..I.
+     ..I.
+     ..I.
+     ..I.`
+]
