@@ -47,16 +47,16 @@ describe("Rotating tetrominoes", () => {
     board.moveDown()
     board.moveDown()
     board.moveDown()
-    board.printPretty()
+    // board.printPretty()
 
     board.drop(Tetromino.T_SHAPE)
     board.rotate()
     board.moveDown()
     board.moveDown()
     board.moveDown()
-    board.printPretty()
+    // board.printPretty()
     board.rotate()
-    board.printPretty()
+    // board.printPretty()
 
 
     expect(board.toString()).to.equalShape(

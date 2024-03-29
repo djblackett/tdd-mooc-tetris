@@ -14,14 +14,14 @@ export const T_ORIENTATIONS = [
 ]
 
 export const I_ORIENTATIONS = [
-  `..I.
-   ..I.
-   ..I.
-   ..I.`,
    `....
    IIII
    ....
    ....`,
+  `..I.    
+ ..I.    
+ ..I.    
+ ..I.`,
 
 ]
 
