@@ -109,16 +109,34 @@ describe("Rotating tetrominoes", () => {
 
     test("will perform a wall kick when up against another block", () => {
       board.rotate()
+      board.moveRight()
+      board.moveRight()
       board.moveDown()
       board.moveDown()
       board.moveDown()
       board.moveDown()
       board.drop(Tetromino.T_SHAPE)
       board.rotate()
+      board.moveRight()
+      board.moveRight()
       board.moveDown()
       board.moveDown()
       board.moveDown()
+      board.drop(Tetromino.T_SHAPE)
+      board.rotate()
+      board.rotate()
+      board.rotate()
+      board.moveRight()
+      board.rotate()
 
+      expect(board.toString()).to.equalShape(
+        `....T.T...
+         ...TTTTT..
+         ......T...
+         ......T...
+         ......TT..
+         ......T...`
+      );
 
 
     })
