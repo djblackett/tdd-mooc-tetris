@@ -1,16 +1,16 @@
 export const T_ORIENTATIONS = [
+  `.T.
+   TTT
+   ...`,
+  `.T.
+   .TT
+   .T.`,
   `TTT
-     .T.
-     ...`,
+   .T.
+   ...`,
   `.T.
-     TT.
-     .T.`,
-  `.T.
-     TTT
-     ...`,
-  `.T.
-     .TT
-     .T.`
+   TT.
+   .T.`,
 ]
 export const I_ORIENTATIONS = [
   `....
