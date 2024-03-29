@@ -7,15 +7,11 @@ export class Tetromino {
        TTT
        ...`);
 
-
-
   static I_SHAPE = Tetromino.fromString(0, 2, `.....
        .....
        IIII.
        .....
        .....`);
-
-
 
   static O_SHAPE = Tetromino.fromString(0, 1, `.OO
        .OO
