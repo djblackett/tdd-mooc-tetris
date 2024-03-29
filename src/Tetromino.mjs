@@ -41,18 +41,22 @@ export class Tetromino {
     const shape = RotatingShape.fromString(initialShape);
     let orientations;
 
-    if (initialShape === `.T.
-      TTT
-      ...` ) {
+    if (initialShape.replaceAll(" ", "").trim() === `.T.
+       TTT
+       ...`.replaceAll(" ", "").trim()) {
       orientations = T_ORIENTATIONS.map(t => RotatingShape.fromString(t))
       console.log("orientations:", orientations);
     }
 
-    if (initialShape === `.....\n.....\nIIII.\n.....\n.....`) {
+    if (initialShape.replaceAll(" ", "").trim() === `.....
+       .....
+       IIII.
+       .....
+       .....`.replaceAll(" ", "").trim()) {
       orientations = I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
 
-    if (initialShape === `....\n.OO.\n.OO.\n....`) {
+    if (initialShape.replaceAll(" ", "").trim() === `.OO\n.OO\n...`.replaceAll(" ", "").trim()) {
       orientations = O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
 
