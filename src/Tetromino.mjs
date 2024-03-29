@@ -54,16 +54,7 @@ export class Tetromino {
       orientations = O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
     switch (initialShape) {
-      case `.T.
-      TTT
-      ...`:
-        orientations = T_ORIENTATIONS.map(t => RotatingShape.fromString(t))
-        break;
-      case `.....\n.....\nIIII.\n.....\n.....`:
-        orientations = I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
-        break;
-      case `....\n.OO.\n.OO.\n....`:
-        orientations = O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+
     }
     return new Tetromino(currentOrientation, orientations);
   }
