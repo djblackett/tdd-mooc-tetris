@@ -54,7 +54,7 @@ export class Tetromino {
 
   constructor(currentOrientation, orientations) {
     this.currentOrientation = (currentOrientation + orientations.length) % orientations.length;
-    this. orientations = orientations;
+    this.orientations = orientations;
   }
 
   static fromString(currentOrientation, orientationCount, initialShape) {
@@ -73,14 +73,15 @@ export class Tetromino {
     let orientations;
     switch (initialShape) {
       case `.T.\nTTT\n...`:
-        orientations = Tetromino.T_ORIENTATIONS
+        orientations = Tetromino.T_ORIENTATIONS.map(t => RotatingShape.fromString(t))
         break;
       case `.....\n.....\nIIII.\n.....\n.....`:
-        orientations = Tetromino.I_ORIENTATIONS
+        orientations = Tetromino.I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
         break;
       case `....\n.OO.\n.OO.\n....`:
-        orientations = Tetromino.O_ORIENTATIONS
+        orientations = Tetromino.O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
+    console.log("Orientations:", orientations);
     return new Tetromino(currentOrientation, orientations);
   }
 
