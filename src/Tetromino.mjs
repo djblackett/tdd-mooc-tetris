@@ -68,6 +68,15 @@ export class Tetromino {
     return new Tetromino(currentOrientation, orientations);
   }
 
+  static fromString2(currentOrientation, orientationCount, initialShape) {
+    const shape = RotatingShape.fromString(initialShape);
+    let orientation;
+    switch (initialShape) {
+      case Tetromino.T_SHAPE[2]:
+        orientation = Tetromino.T_ORIENTATIONS
+    }
+  }
+
   shape() {
     return this.orientations[this.currentOrientation];
   }
