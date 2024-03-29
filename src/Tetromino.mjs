@@ -46,6 +46,13 @@ export class Tetromino {
       orientations = T_ORIENTATIONS.map(t => RotatingShape.fromString(t))
       console.log("orientations:", orientations);
     }
+    if (initialShape === `.....\n.....\nIIII.\n.....\n.....`) {
+      orientations = I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+    }
+
+    if (initialShape === `....\n.OO.\n.OO.\n....`) {
+      orientations = O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+    }
     switch (initialShape) {
       case `.T.
       TTT
