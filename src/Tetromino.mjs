@@ -42,6 +42,13 @@ export class Tetromino {
        .OO
        ...`);
 
+  static O_ORIENTATIONS = [
+    `....
+     .OO.
+     .OO.
+     ....`
+  ]
+
   currentOrientation;
   orientations;
 
