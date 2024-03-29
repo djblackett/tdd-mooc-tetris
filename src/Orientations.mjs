@@ -13,14 +13,15 @@ export const T_ORIENTATIONS = [
    .T.`,
 ]
 export const I_ORIENTATIONS = [
-  `....
-     IIII
-     ....
-     ....`,
   `..I.
-     ..I.
-     ..I.
-     ..I.`
+   ..I.
+   ..I.
+   ..I.`,
+   `....
+   IIII
+   ....
+   ....`,
+
 ]
 
 export const O_ORIENTATIONS = [
