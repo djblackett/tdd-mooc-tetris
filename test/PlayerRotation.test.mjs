@@ -23,27 +23,49 @@ describe("Rotating tetrominoes", () => {
   })
 
   test("it cannot be rotated when there is no room to rotate", () => {
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.drop(Tetromino.T_SHAPE)
+    board.rotate()
+    board.moveRight()
+    board.moveRight()
     board.moveDown()
     board.moveDown()
     board.moveDown()
     board.moveDown()
     board.drop(Tetromino.T_SHAPE)
     board.rotate()
+    board.moveRight()
+    board.moveRight()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.drop(Tetromino.T_SHAPE)
+    board.rotate()
+    board.rotate()
+    board.rotate()
+    board.moveLeft()
+// board.rotate()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.printPretty()
+
+    board.drop(Tetromino.T_SHAPE)
+    board.rotate()
+    board.moveDown()
+    board.moveDown()
+    board.moveDown()
+    board.printPretty()
+    board.rotate()
+    board.printPretty()
 
 
     expect(board.toString()).to.equalShape(
-      `....T.....
-       ...TTT....
-       ....T.....
-       ...TTT....
-       ....T.....
-       ...TTT....`
+      `......T...
+       ......TT..
+       ......T...
+       ...TT.T...
+       ..TTTTTT..
+       ...TT.T...`
     );
   })
 
@@ -107,7 +129,7 @@ describe("Rotating tetrominoes", () => {
       );
     })
 
-    test.skip("will perform a wall kick when up against another block", () => {
+    test("will perform a wall kick when up against another block", () => {
       board.rotate()
       board.moveRight()
       board.moveRight()
