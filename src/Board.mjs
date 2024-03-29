@@ -135,15 +135,6 @@ export class Board {
       if (this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
-
-      }
-
-      else if (!this.canBlockMove(newBlock) && newBlock.col === 0) {
-        this.moveRight(newBlock);
-      }
-
-      else if (!this.canBlockMove(newBlock) && newBlock.col + newBlock.shape.getWidth() >= this.width - 1) {
-        this.moveLeft(newBlock);
       }
 
 

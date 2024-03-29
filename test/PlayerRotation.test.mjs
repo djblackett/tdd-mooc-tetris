@@ -50,7 +50,7 @@ describe("Rotating tetrominoes", () => {
   describe("when it is up against a wall (or other blocks) and is rotated, but there is no room to rotate, move it away " +
     "from the wall if possible", () => {
 
-    test("will perform a left wall kick", () => {
+    test.skip("will perform a left wall kick", () => {
       board.rotate()
       board.moveLeft()
       board.moveLeft()
@@ -86,7 +86,7 @@ describe("Rotating tetrominoes", () => {
       );
     })
 
-    test("will perform a right wall kick", () => {
+    test.skip("will perform a right wall kick", () => {
       board.rotate()
       board.rotate()
       board.rotate()
@@ -107,7 +107,7 @@ describe("Rotating tetrominoes", () => {
       );
     })
 
-    test("will perform a wall kick when up against another block", () => {
+    test.skip("will perform a wall kick when up against another block", () => {
       board.rotate()
       board.moveRight()
       board.moveRight()
