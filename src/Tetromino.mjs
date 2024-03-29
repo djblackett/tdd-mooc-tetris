@@ -7,20 +7,7 @@ export class Tetromino {
        TTT
        ...`);
 
-  static T_ORIENTATIONS = [
-    `TTT
-     .T.
-     ...`,
-    `.T.
-     TT.
-     .T.`,
-    `.T.
-     TTT
-     ...`,
-    `.T.
-     .TT
-     .T.`
-  ]
+
 
   static I_SHAPE = Tetromino.fromString(0, 2, `.....
        .....
