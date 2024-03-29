@@ -147,8 +147,9 @@ export class Board {
         } else if (this.canBlockMove(leftBlock)) {
           this.blocks.push(leftBlock);
           this.movingBlock = leftBlock
+        } else {
+          this.blocks.push(oldBlock);
         }
-        this.blocks.push(oldBlock);
       }
     }
   }
