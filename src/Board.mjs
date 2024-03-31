@@ -248,7 +248,11 @@ export class Board {
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.grid[i][j] === ".") {
-          return;
+          break;
+        }
+        if (j === this.width - 1) {
+          // clear row
+          // move upper rows down
         }
       }
     }
