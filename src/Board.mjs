@@ -244,6 +244,12 @@ export class Board {
     }
   }
 
+  clearRow(row) {
+    for (let col = 0; col < this.width; col++) {
+      this.grid[row][col] = "."
+    }
+  }
+
   checkRows() {
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
