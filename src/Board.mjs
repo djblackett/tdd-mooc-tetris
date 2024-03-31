@@ -244,6 +244,12 @@ export class Board {
     }
   }
 
+  applyBlockToGrid(block) {
+    for (let point of block.getFilledCoordinates()) {
+      this.grid[point.row][point.col] = block.symbol;
+    }
+  }
+
   clearRow(row) {
     this.grid.splice(row, 1)
   }
