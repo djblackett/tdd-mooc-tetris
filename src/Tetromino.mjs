@@ -13,9 +13,10 @@ export class Tetromino {
        ....
        ....`);
 
-  static O_SHAPE = Tetromino.fromString(0, 1, `.OO
-       .OO
-       ...`);
+  static O_SHAPE = Tetromino.fromString(0, 1, `....
+       .OO.
+       .OO.
+       ....`);
 
 
   currentOrientation;
@@ -56,7 +57,7 @@ export class Tetromino {
       orientations = I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
 
-    if (initialShape.replaceAll(" ", "").trim() === `.OO\n.OO\n...`.replaceAll(" ", "").trim()) {
+    if (initialShape.replaceAll(" ", "").trim() === `....\n.OO.\n.OO.\n....`.replaceAll(" ", "").trim()) {
       orientations = O_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
 
