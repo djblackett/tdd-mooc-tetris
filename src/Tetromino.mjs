@@ -48,11 +48,11 @@ export class Tetromino {
       console.log("orientations:", orientations);
     }
 
-    if (initialShape.replaceAll(" ", "").trim() === `.....
-       .....
-       IIII.
-       .....
-       .....`.replaceAll(" ", "").trim()) {
+    if (initialShape.replaceAll(" ", "").trim() === `
+       ....
+       IIII
+       ....
+       ....`.replaceAll(" ", "").trim()) {
       orientations = I_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
 
