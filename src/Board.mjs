@@ -248,6 +248,9 @@ export class Board {
     this.grid.splice(row, 1)
   }
 
+  // does not do anything because the grid is only filled when printed
+  // must refactor so that grid stays filled
+  // use points instead of blocks except movingBlock
   checkRows() {
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
@@ -257,6 +260,7 @@ export class Board {
         if (j === this.width - 1) {
           this.clearRow(i)
           this.grid.unshift([].fill(".", 0, this.width))
+          return
         }
       }
     }
