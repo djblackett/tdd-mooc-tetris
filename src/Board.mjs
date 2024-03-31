@@ -245,9 +245,7 @@ export class Board {
   }
 
   clearRow(row) {
-    for (let col = 0; col < this.width; col++) {
-      this.grid[row][col] = "."
-    }
+    this.grid.splice(row, 1)
   }
 
   checkRows() {
@@ -257,8 +255,8 @@ export class Board {
           break;
         }
         if (j === this.width - 1) {
-          // clear row
-          // move upper rows down
+          this.clearRow(i)
+          this.grid.unshift([].fill(".", 0, this.width))
         }
       }
     }
