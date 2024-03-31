@@ -27,7 +27,7 @@ export class Tetromino {
     this.orientations = orientations;
   }
 
-  static fromString(currentOrientation, orientationCount, initialShape) {
+  static fromString2(currentOrientation, orientationCount, initialShape) {
     const shape = RotatingShape.fromString(initialShape);
     const orientations = [
       shape,
@@ -38,7 +38,7 @@ export class Tetromino {
     return new Tetromino(currentOrientation, orientations);
   }
 
-  static fromString2(currentOrientation, orientationCount, initialShape) {
+  static fromString(currentOrientation, orientationCount, initialShape) {
     const shape = RotatingShape.fromString(initialShape);
     let orientations;
 
