@@ -59,4 +59,26 @@ describe("Falling tetrominoes", () => {
        ...TTT....`
     );
   });
+
+  test("when block stops and completes a row it disappears and blocks move down", () => {
+    board.moveLeft()
+    board.moveLeft()
+    board.moveLeft()
+    fallToBottom(board)
+    board.drop(Tetromino.T_SHAPE)
+    fallToBottom(board)
+    board.drop(Tetromino.T_SHAPE)
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+
+    board.drop(Tetromino.T_SHAPE)
+    board.rotate()
+    board.rotate()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+  })
 });
