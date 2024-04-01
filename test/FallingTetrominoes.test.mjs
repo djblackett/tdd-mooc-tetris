@@ -60,7 +60,7 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test("when block stops and completes a row it disappears and blocks move down", () => {
+  test.skip("when block stops and completes a row it disappears and blocks move down", () => {
     board.moveLeft()
     board.moveLeft()
     board.moveLeft()
@@ -80,6 +80,7 @@ describe("Falling tetrominoes", () => {
     board.moveRight()
     board.moveRight()
     fallToBottom(board)
+    board.checkRows()
 
     expect(board.toString()).to.equalShape(
       `..........

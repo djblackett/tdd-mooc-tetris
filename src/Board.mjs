@@ -175,7 +175,16 @@ export class Board {
         blockSet.set(point.toString(), point);
       }
     }
+    for (let i = 0; i < this.height; i++) {
+      for (let j = 0; j < this.width; j++) {
+        if (this.grid[i][j] !== ".") {
+          let point = new Point(i, j)
+          blockSet.set(point.toString(), point)
+        }
+      }
+    }
     for (let point of testBlock.getFilledCoordinates()) {
+      if (point.col < 0 || point.col >= this.width || point.row >= this.height || this.grid[point.row][point.col] !== "." ){return false;}
       if (blockSet.has(point.toString())) {
         return false;
       }
