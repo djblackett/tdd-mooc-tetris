@@ -204,12 +204,6 @@ export class Board {
     blockPositions.forEach(pos => {
       const mappedX = movableBlock.col + pos.x; // Translate X position
       const mappedY = movableBlock.row + pos.y; // Translate Y position
-      if (this.isValidPosition(mappedX, mappedY)) {
-        mappedPositions.push(new Point(mappedX, mappedY));
-      } else {
-        // Handle invalid position (e.g., out of bounds or collision)
-      }
-    return mappedPositions;
     })
   }
 
