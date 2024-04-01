@@ -44,6 +44,7 @@ export class Board {
     if (this.movingBlock instanceof MovableBlock || !this.legacy) {
       if (this.movingBlock.row + this.movingBlock.shape.getHeight() > this.height) {
         console.log("At bottom - stopped moving");
+        this.applyBlockToGrid(this.movingBlock)
         this.movingBlock = null;
       } else {
         const oldBlock =    this.blocks.pop();
@@ -56,6 +57,8 @@ export class Board {
           this.movingBlock = newBlock
         } else {
           this.blocks.push(oldBlock)
+          this.applyBlockToGrid(oldBlock)
+          this.movingBlock = null;
         }
       }
     }
@@ -109,6 +112,7 @@ export class Board {
         this.movingBlock = newBlock
       } else {
         this.blocks.push(oldBlock);
+        // this.applyBlockToGrid(oldBlock)
         this.movingBlock = null;
       }
     }
@@ -247,6 +251,12 @@ export class Board {
   applyBlockToGrid(block) {
     for (let point of block.getFilledCoordinates()) {
       this.grid[point.row][point.col] = block.symbol;
+    }
+  }
+
+  removeBlock(block) {
+    for (let point of block.getFilledCoordinates()) {
+      this.grid[point.row][point.col] = ".";
     }
   }
 
