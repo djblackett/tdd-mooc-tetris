@@ -118,13 +118,6 @@ export class Board {
     }
   }
 
-  moveUp() {
-    if (this.movingBlock) {
-      const oldBlock = this.blocks.pop();
-      const newBlock = this.movingBlock.moveUp();
-    }
-  }
-
   rotate() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
