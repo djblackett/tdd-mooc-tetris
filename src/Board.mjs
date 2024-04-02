@@ -279,7 +279,6 @@ export class Board {
       }
     }
     return count;
-<<<<<<< HEAD
   }
 
   isBlockAtTop(block) {
@@ -292,8 +291,6 @@ export class Board {
     }
     this.removeBlock(block);
     return isAtTop;
-=======
->>>>>>> 6472715d914051b472308c59f88e8457b089030f
   }
 }
 

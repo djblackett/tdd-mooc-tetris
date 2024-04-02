@@ -32,7 +32,15 @@ describe("Players can score points", () => {
     expect(score).toBe(200);
   })
 
-  // discovered bug for O_SHAPE movement - add more tests to root out bug
+  test("Player should receive more points from clearing three rows", () => {
+    let score = 0;
+    setUpDoubleRowClear(board)
+    setUpRowClear(board)
+    const rowsCleared = board.checkRows()
+    score += rowsCleared * 100;
+    expect(score).toBe(300);
+  })
+
   test.skip("Player should receive more points from clearing four rows", () => {
     let score = 0;
     setUpDoubleRowClear(board)
@@ -42,12 +50,4 @@ describe("Players can score points", () => {
     score += rowsCleared * 100;
     expect(score).toBe(400);
   })
-
-
-
-
-
-
-
-
 })
