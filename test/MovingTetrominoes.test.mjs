@@ -1,5 +1,5 @@
 
-import { beforeEach, describe, test } from "vitest";
+import { beforeEach, describe, onTestFailed, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
@@ -123,6 +123,21 @@ describe("Moving tetrominoes", () => {
     board.moveLeft()
     board.moveLeft()
 
+    onTestFailed(() => {
+      console.log("Expected:");
+      console.log(`..........
+       ..........
+       .T..T.....
+       TTTTTT....
+       .T........
+       TTT.......`.trim().replaceAll(" ", ""));
+      console.log();
+
+      console.log("Received:");
+      console.log(board.toString());
+      console.log();
+    })
+
     expect(board.toString()).to.equalShape(
       `..........
        ..........
@@ -131,6 +146,17 @@ describe("Moving tetrominoes", () => {
        .T........
        TTT.......`
     );
+
+    onTestFailed(() => {
+      console.log("Expected:", `..........
+       ..........
+       .T..T.....
+       TTTTTT....
+       .T........
+       TTT.......`);
+      console.log();
+      console.log("Received:", board.toString());
+    })
   })
 
   test("it cannot be moved right through other blocks", () => {
