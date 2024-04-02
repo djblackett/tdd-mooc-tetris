@@ -1,6 +1,7 @@
 import { Tetromino } from "./Tetromino.mjs";
 import { MovableBlock } from "./MovableBlock.mjs";
 import { Point } from "./Point.mjs";
+
 export class Board {
   width;
   height;
@@ -258,10 +259,8 @@ export class Board {
     this.grid.splice(row, 1)
   }
 
-  // does not do anything because the grid is only filled when printed
-  // must refactor so that grid stays filled
-  // use points instead of blocks except movingBlock
   checkRows() {
+    let count = 0;
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.grid[i][j] === ".") {
@@ -270,9 +269,11 @@ export class Board {
         if (j === this.width - 1) {
           this.clearRow(i)
           this.grid.unshift(".".repeat(this.width).split(""))
+          count++;
         }
       }
     }
+    return count;
   }
 }
 
