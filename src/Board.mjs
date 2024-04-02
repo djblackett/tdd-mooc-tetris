@@ -28,6 +28,7 @@ export class Board {
         const newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
+        this.applyBlockToGrid(newBlock)
       } else {
         this.grid[0][Math.floor(this.width / 2)] = block;
         this.movingBlock = [block, Math.floor(this.width / 2), 0];
@@ -135,6 +136,7 @@ export class Board {
       if (this.canBlockMove(rotatedBlock)) {
         this.blocks.push(rotatedBlock);
         this.movingBlock = rotatedBlock
+        this.applyBlockToGrid(rotatedBlock)
       }
 
 
@@ -211,7 +213,7 @@ export class Board {
   }
 
   toString() {
-    this.applyBlocks()
+    // this.applyBlocks()
     let strings = this.grid.map(row => row.join(""));
     return strings.join("\n") + "\n";
   }
