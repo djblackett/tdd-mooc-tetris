@@ -3,6 +3,7 @@ import { beforeEach, describe, onTestFailed, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
+import { fallToBottom } from "./testing.mjs";
 
 
 describe("Moving tetrominoes", () => {
@@ -229,8 +230,42 @@ describe("Moving tetrominoes", () => {
     );
   })
 
-  test("O_SHAPE can move all the way to the right", () => {
+
+
+
+  // uncovered bug in drop() function - adding more tests
+  test.skip("O_SHAPE can move all the way to the right", () => {
+    board.drop(Tetromino.O_SHAPE);
+    console.table(board.grid);
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
     board.drop(Tetromino.O_SHAPE);
     board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE);
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+
+    console.table(board.toString());
+
+    expect(board.toString()).to.equalShape(
+      `
+       ........OO
+       ........OO
+       ........OO
+       ........OO
+       ........OO
+       ........OO
+       `
+    );
   })
 })
