@@ -144,7 +144,7 @@ describe("Falling tetrominoes", () => {
     board.moveRight()
     board.moveRight()
     fallToBottom(board)
-    console.table(board.grid)
+
     board.checkRows()
 
     expect(board.toString()).to.equalShape(
