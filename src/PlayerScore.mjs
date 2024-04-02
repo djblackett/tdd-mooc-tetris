@@ -6,6 +6,10 @@ export class PlayerScore {
     board.subscribe(this);
   }
 
+  getScore() {
+    return this.score
+  }
+
   receiveNotification(rowsCleared) {
     this.score += rowsCleared * this.MULTIPLIER;
   }
