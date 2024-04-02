@@ -119,6 +119,17 @@ describe("Falling tetrominoes", () => {
        ..........
        .T..TTTTT.`
     );
+  })
+
+  test("Can clear 2 rows on board", () => {
+    board.drop(Tetromino.O_SHAPE)
+    board.moveLeft()
+    board.moveLeft()
+    board.moveLeft()
+    fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE)
+    board.moveLeft()
+    fallToBottom(board)
 
   })
 });
