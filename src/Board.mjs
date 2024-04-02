@@ -43,7 +43,6 @@ export class Board {
     }
     if (this.movingBlock instanceof MovableBlock || !this.legacy) {
       if (this.movingBlock.row + this.movingBlock.shape.getHeight() > this.height) {
-        console.log("At bottom - stopped moving");
         this.applyBlockToGrid(this.movingBlock)
         this.movingBlock = null;
       } else {
