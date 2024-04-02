@@ -10,13 +10,11 @@ export class Board {
   grid = []
   movingBlock = null;
   legacy = true;
-  playerScore;
 
 
-  constructor(width, height, score=(new PlayerScore())) {
+  constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.playerScore = score;
     this.observers = []
 
     for (let i = 0; i < this.height; i++) {
@@ -39,7 +37,9 @@ export class Board {
   }
 
   notify(rowsCleared) {
-    this.playerScore.updateScore(rowsCleared);
+    for (let observer of this.observers) {
+      observer.updateScore(rowsCleared);
+    }
   }
 
   drop(block) {
