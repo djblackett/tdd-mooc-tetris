@@ -126,10 +126,34 @@ describe("Falling tetrominoes", () => {
     board.moveLeft()
     board.moveLeft()
     board.moveLeft()
+    board.moveLeft()
     fallToBottom(board)
     board.drop(Tetromino.O_SHAPE)
     board.moveLeft()
+    board.moveLeft()
     fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE)
+    fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE)
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE)
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+    console.table(board.grid)
+    board.checkRows()
 
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
   })
 });
