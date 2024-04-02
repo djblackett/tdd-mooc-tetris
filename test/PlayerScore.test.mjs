@@ -18,8 +18,10 @@ describe("Players can score points", () => {
 
   test("The player should receive points every time they manage to remove a row.", () => {
     let score = 0;
-
     setUpRowClear(board)
+    const rowsCleared = board.checkRows()
+    score += rowsCleared * 100;
+    expect(score).toBe(100);
   })
 
 

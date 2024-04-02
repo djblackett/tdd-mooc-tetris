@@ -46,5 +46,4 @@ export function setUpRowClear(board) {
   board.moveRight()
   board.moveRight()
   fallToBottom(board)
-  board.checkRows()
 }
