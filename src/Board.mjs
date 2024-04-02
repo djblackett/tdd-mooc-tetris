@@ -275,5 +275,15 @@ export class Board {
     }
     return count;
   }
+
+  isBlankSpaceAtTop(block) {
+    let isAtTop = false;
+    for (let point of block.getFilledCoordinates()) {
+      if (this.grid[0][point.col] !== ".") {
+        isAtTop = true;
+      }
+    }
+    return isAtTop;
+  }
 }
 
