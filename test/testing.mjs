@@ -1,4 +1,5 @@
 import { Assertion } from "chai";
+import { Tetromino } from "../src/Tetromino.mjs";
 
 export function normalize(s) {
   return s.replaceAll(" ", "").trim() + "\n";
@@ -17,3 +18,33 @@ Assertion.addMethod("equalShape", function (expected) {
     actual
   );
 });
+
+function fallToBottom(board) {
+  for (let i = 0; i < 10; i++) {
+    board.tick();
+  }
+}
+
+export function setUpRowClear(board) {
+  board.drop(Tetromino.T_SHAPE);
+  board.moveLeft()
+  board.moveLeft()
+  board.moveLeft()
+  fallToBottom(board)
+  board.drop(Tetromino.T_SHAPE)
+  fallToBottom(board)
+  board.drop(Tetromino.T_SHAPE)
+  board.moveRight()
+  board.moveRight()
+  board.moveRight()
+  board.moveRight()
+  fallToBottom(board)
+
+  board.drop(Tetromino.T_SHAPE)
+  board.rotate()
+  board.rotate()
+  board.moveRight()
+  board.moveRight()
+  fallToBottom(board)
+  board.checkRows()
+}
