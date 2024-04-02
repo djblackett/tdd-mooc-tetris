@@ -19,6 +19,21 @@ describe("Falling tetrominoes", () => {
   test("start from the top middle", () => {
     board.drop(Tetromino.T_SHAPE);
 
+    onTestFailed(() => {
+      console.log("Expected:");
+      console.log(`....T.....
+       ...TTT....
+       ..........
+       ..........
+       ..........
+       ..........`.trim().replaceAll(" ", ""));
+      console.log();
+
+      console.log("Received:");
+      console.log(board.toString());
+      console.log();
+    })
+
     expect(board.toString()).to.equalShape(
       `....T.....
        ...TTT....
@@ -59,7 +74,7 @@ describe("Falling tetrominoes", () => {
     );
   });
 
-  test.skip("when block stops and completes a row it disappears and blocks move down", () => {
+  test("when block stops and completes a row it disappears and blocks move down", () => {
     board.moveLeft()
     board.moveLeft()
     board.moveLeft()
