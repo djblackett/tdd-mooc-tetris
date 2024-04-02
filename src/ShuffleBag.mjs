@@ -11,6 +11,15 @@ export class ShuffleBag {
     return this.blocks;
   }
 
+  getBlock() {
+    if (this.blocks.length > 0) {
+      return this.blocks.pop();
+    } else {
+      this.blocks = Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE;
+      this.shuffle()
+    }
+  }
+
   // todo - add seed?
   shuffle() {
     this.blocks = this.blocks
