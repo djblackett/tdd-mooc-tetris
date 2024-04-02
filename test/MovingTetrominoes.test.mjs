@@ -230,13 +230,8 @@ describe("Moving tetrominoes", () => {
     );
   })
 
-
-
-
-  // uncovered bug in drop() function - adding more tests
-  test.skip("O_SHAPE can move all the way to the right", () => {
+  test("O_SHAPE can move all the way to the right", () => {
     board.drop(Tetromino.O_SHAPE);
-    console.table(board.grid);
     board.moveRight()
     board.moveRight()
     board.moveRight()
