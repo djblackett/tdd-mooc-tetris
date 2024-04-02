@@ -83,7 +83,7 @@ export class Board {
       const oldBlock = this.blocks.pop();
       this.removeBlock(oldBlock)
       const newBlock = this.movingBlock.moveLeft();
-      if (newBlock.col >= 0 && this.canBlockMove(newBlock)) {
+      if ( this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
         this.applyBlockToGrid(newBlock)
@@ -100,7 +100,7 @@ export class Board {
       const oldBlock = this.blocks.pop();
       this.removeBlock(oldBlock)
       const newBlock = this.movingBlock.moveRight();
-      if (newBlock.col + newBlock.shape.getWidth() <= this.width && this.canBlockMove(newBlock)) {
+      if (this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
         this.applyBlockToGrid(newBlock)
