@@ -10,7 +10,7 @@ export class PlayerScore {
     return this.score
   }
 
-  receiveNotification(rowsCleared) {
+  updateScore(rowsCleared) {
     this.score += rowsCleared * this.MULTIPLIER;
   }
 }

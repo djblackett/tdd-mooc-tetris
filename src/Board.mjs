@@ -31,8 +31,15 @@ export class Board {
     this.observers.push(observer);
   }
 
+  detach(observer) {
+    const index = this.observers.indexOf(observer);
+    if (index > -1) {
+      this.observers.splice(index, 1);
+    }
+  }
+
   notify(rowsCleared) {
-    this.playerScore.receiveNotification(rowsCleared);
+    this.playerScore.updateScore(rowsCleared);
   }
 
   drop(block) {
