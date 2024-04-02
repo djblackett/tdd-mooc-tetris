@@ -1,6 +1,7 @@
 import { Tetromino } from "./Tetromino.mjs";
 import { MovableBlock } from "./MovableBlock.mjs";
 import { Point } from "./Point.mjs";
+import { PlayerScore } from "./PlayerScore.mjs";
 
 export class Board {
   width;
@@ -9,10 +10,12 @@ export class Board {
   grid = []
   movingBlock = null;
   legacy = true;
+  playerScore;
 
-  constructor(width, height) {
+  constructor(width, height, score=(new PlayerScore())) {
     this.width = width;
     this.height = height;
+    this.playerScore = score;
 
     for (let i = 0; i < this.height; i++) {
       this.grid[i] = [];
@@ -21,6 +24,8 @@ export class Board {
       }
     }
   }
+
+  notify(rowsCleared) {}
 
   drop(block) {
     if (this.movingBlock === null) {
