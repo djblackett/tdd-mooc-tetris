@@ -1,9 +1,14 @@
-class ShuffleBag {
+import { Tetromino } from "./Tetromino.mjs";
+export class ShuffleBag {
   blocks;
 
   constructor(blockArray) {
     this.blocks = blockArray;
     this.shuffle(this.blocks)
+  }
+
+  getShuffleBag() {
+    return this.blocks;
   }
 
   // todo - add seed?
