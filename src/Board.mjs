@@ -12,10 +12,12 @@ export class Board {
   legacy = true;
   playerScore;
 
+
   constructor(width, height, score=(new PlayerScore())) {
     this.width = width;
     this.height = height;
     this.playerScore = score;
+    this.observers = []
 
     for (let i = 0; i < this.height; i++) {
       this.grid[i] = [];
@@ -25,7 +27,13 @@ export class Board {
     }
   }
 
-  notify(rowsCleared) {}
+  attach(observer) {
+    this.observers.push(observer);
+  }
+
+  notify(rowsCleared) {
+    this.playerScore.receiveNotification(rowsCleared);
+  }
 
   drop(block) {
     if (this.movingBlock === null) {
@@ -283,6 +291,7 @@ export class Board {
         }
       }
     }
+    this.notify(count)
     return count;
   }
 
