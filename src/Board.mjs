@@ -102,8 +102,10 @@ export class Board {
       if (newBlock.col + newBlock.shape.getWidth() <= this.width && this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
+        this.applyBlockToGrid(newBlock)
       } else {
         this.blocks.push(oldBlock)
+        this.applyBlockToGrid(oldBlock)
       }
     }
   }
@@ -128,6 +130,7 @@ export class Board {
   rotate() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
+      this.removeBlock(oldBlock)
       const rotatedBlock = this.movingBlock.rotateRight()
       if (this.canBlockMove(rotatedBlock)) {
         this.blocks.push(rotatedBlock);
@@ -141,11 +144,14 @@ export class Board {
         if (this.canBlockMove(rightBlock)) {
           this.blocks.push(rightBlock);
           this.movingBlock = rightBlock
+          this.applyBlockToGrid(rightBlock)
         } else if (this.canBlockMove(leftBlock)) {
           this.blocks.push(leftBlock);
           this.movingBlock = leftBlock
+          this.applyBlockToGrid(leftBlock)
         } else {
           this.blocks.push(oldBlock);
+          this.applyBlockToGrid(oldBlock)
         }
       }
     }
