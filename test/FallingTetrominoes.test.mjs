@@ -75,6 +75,7 @@ describe("Falling tetrominoes", () => {
   });
 
   test("when block stops and completes a row it disappears and blocks move down", () => {
+    board.drop(Tetromino.T_SHAPE);
     board.moveLeft()
     board.moveLeft()
     board.moveLeft()

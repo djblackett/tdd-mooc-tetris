@@ -269,7 +269,7 @@ export class Board {
         }
         if (j === this.width - 1) {
           this.clearRow(i)
-          this.grid.unshift([].fill(".", 0, this.width))
+          this.grid.unshift(".".repeat(this.width).split(""))
           return
         }
       }
