@@ -1,4 +1,4 @@
-import { beforeEach, describe, test } from "vitest";
+import { beforeEach, describe, onTestFailed, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
@@ -144,12 +144,29 @@ describe("Rotating tetrominoes", () => {
       board.moveDown()
       board.moveDown()
       board.moveDown()
+
+      // moving block
       board.drop(Tetromino.T_SHAPE)
       board.rotate()
       board.rotate()
       board.rotate()
       board.moveRight()
       board.rotate()
+
+      onTestFailed(() => {
+        console.log("Expected:");
+        console.log(`....T.T...
+         ...TTTTT..
+         ......T...
+         ......T...
+         ......TT..
+         ......T...`.trim().replaceAll(" ", ""));
+        console.log();
+
+        console.log("Received:");
+        console.log(board.toString());
+        console.log();
+      })
 
       expect(board.toString()).to.equalShape(
         `....T.T...
@@ -159,10 +176,6 @@ describe("Rotating tetrominoes", () => {
          ......TT..
          ......T...`
       );
-
-
     })
-
-
   })
 })

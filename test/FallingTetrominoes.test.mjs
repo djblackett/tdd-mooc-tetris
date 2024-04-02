@@ -1,5 +1,5 @@
 
-import { beforeEach, describe, test } from "vitest";
+import { beforeEach, describe, onTestFailed, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
@@ -81,6 +81,20 @@ describe("Falling tetrominoes", () => {
     fallToBottom(board)
     board.checkRows()
 
+    onTestFailed(() => {
+      console.log("Expected:");
+      console.log(`..........
+       ..........
+       ..........
+       ..........
+       ..........
+       .T..TTTTT.`.trim().replaceAll(" ", ""));
+      console.log();
+
+      console.log("Received:");
+      console.log(board.toString());
+      console.log();
+    })
     expect(board.toString()).to.equalShape(
       `..........
        ..........
