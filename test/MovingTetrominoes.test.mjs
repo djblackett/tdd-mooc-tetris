@@ -250,8 +250,6 @@ describe("Moving tetrominoes", () => {
     board.moveRight()
     fallToBottom(board)
 
-    console.table(board.toString());
-
     expect(board.toString()).to.equalShape(
       `
        ........OO

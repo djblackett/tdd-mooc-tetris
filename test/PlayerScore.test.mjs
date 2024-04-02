@@ -35,12 +35,15 @@ describe("Players can score points", () => {
     expect(score).toBe(300);
   })
 
-  test.skip("Player should receive more points from clearing four rows", () => {
+  // todo - test passes but visual inspection looks incorrect
+  test("Player should receive more points from clearing four rows", () => {
     let score = 0;
     setUpDoubleRowClear(board)
+    console.table(board.grid)
     setUpDoubleRowClear(board)
     console.table(board.grid)
     const rowsCleared = board.checkRows()
+    console.table(board.grid)
     score += rowsCleared * 100;
     expect(score).toBe(400);
   })
