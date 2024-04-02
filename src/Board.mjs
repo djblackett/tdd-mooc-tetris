@@ -48,6 +48,7 @@ export class Board {
         this.movingBlock = null;
       } else {
         const oldBlock =    this.blocks.pop();
+        this.removeBlock(oldBlock)
         const newBlock = this.movingBlock.moveDown();
         const valid = this.canBlockMove(newBlock);
 
@@ -80,12 +81,16 @@ export class Board {
   moveLeft() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
+      this.removeBlock(oldBlock)
       const newBlock = this.movingBlock.moveLeft();
       if (newBlock.col >= 0 && this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
+        this.applyBlockToGrid(newBlock)
       } else {
         this.blocks.push(oldBlock);
+        this.applyBlockToGrid(oldBlock)
+        // console.table(this.grid)
       }
     }
   }
@@ -93,6 +98,7 @@ export class Board {
   moveRight() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
+      this.removeBlock(oldBlock)
       const newBlock = this.movingBlock.moveRight();
       if (newBlock.col + newBlock.shape.getWidth() <= this.width && this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
@@ -106,13 +112,15 @@ export class Board {
   moveDown() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
+      this.removeBlock(oldBlock)
       const newBlock = this.movingBlock.moveDown();
       if (this.canBlockMove(newBlock)) {
         this.blocks.push(newBlock);
         this.movingBlock = newBlock
+        this.applyBlockToGrid(newBlock)
       } else {
         this.blocks.push(oldBlock);
-        // this.applyBlockToGrid(oldBlock)
+        this.applyBlockToGrid(oldBlock)
         this.movingBlock = null;
       }
     }
@@ -204,7 +212,7 @@ export class Board {
   }
 
   printPretty() {
-    this.resetGrid()
+    // this.resetGrid()
     this.applyBlocks()
     console.table(this.grid);
     console.log();
