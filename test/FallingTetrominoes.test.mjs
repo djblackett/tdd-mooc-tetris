@@ -160,20 +160,6 @@ describe("Falling tetrominoes", () => {
 
   test("O_SHAPE starts from the top middle", () => {
     board.drop(Tetromino.O_SHAPE);
-    // onTestFailed(() => {
-    //   console.log("Expected:");
-    //   console.log(`....T.....
-    //    ...TTT....
-    //    ..........
-    //    ..........
-    //    ..........
-    //    ..........`.trim().replaceAll(" ", ""));
-    //   console.log();
-    //
-    //   console.log("Received:");
-    //   console.log(board.toString());
-    //   console.log();
-    // })
     expect(board.toString()).to.equalShape(
       `
        ....OO....
