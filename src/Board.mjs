@@ -13,17 +13,20 @@ export class Board {
   legacy = true;
 
 
-  constructor(width, height) {
+  constructor(width, height, grid) {
     this.width = width;
     this.height = height;
     this.observers = []
     this.shuffleBag = new ShuffleBag([Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE])
-
-    for (let i = 0; i < this.height; i++) {
-      this.grid[i] = [];
-      for (let j = 0; j < this.width; j++) {
-        this.grid[i][j] = ".";
+    if (arguments.length < 3) {
+      for (let i = 0; i < this.height; i++) {
+        this.grid[i] = [];
+        for (let j = 0; j < this.width; j++) {
+          this.grid[i][j] = ".";
+        }
       }
+    } else {
+      // this.grid =
     }
   }
 
