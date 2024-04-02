@@ -48,6 +48,7 @@ export class Board {
     if (!block) {
       block = this.shuffleBag.getBlock();
     }
+
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
         this.legacy = false;
