@@ -26,7 +26,12 @@ export class Board {
     if (this.movingBlock === null) {
       if (block instanceof Tetromino) {
         this.legacy = false;
-        const newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
+        let newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
+
+        while (!this.isBlockAtTop(newBlock)) {
+        newBlock = newBlock.moveUp()
+        }
+
         this.blocks.push(newBlock);
         this.movingBlock = newBlock;
         this.applyBlockToGrid(newBlock)
@@ -276,13 +281,15 @@ export class Board {
     return count;
   }
 
-  isBlankSpaceAtTop(block) {
+  isBlockAtTop(block) {
     let isAtTop = false;
+    this.applyBlockToGrid(block)
     for (let point of block.getFilledCoordinates()) {
       if (this.grid[0][point.col] !== ".") {
         isAtTop = true;
       }
     }
+    this.removeBlock(block);
     return isAtTop;
   }
 }
