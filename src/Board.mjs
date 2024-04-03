@@ -205,6 +205,7 @@ export class Board {
     } else if (this.canBlockMove(leftBlock)) {
       this.blocks.push(leftBlock);
       this.movingBlock = leftBlock
+      this.applyBlockToGrid(leftBlock)
     } else {
       this.blocks.push(oldBlock);
       this.applyBlockToGrid(oldBlock)
