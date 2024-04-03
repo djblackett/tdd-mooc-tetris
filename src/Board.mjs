@@ -194,16 +194,6 @@ export class Board {
     }
   }
 
-  isValidPosition(x, y) {
-    // Check if (x, y) is within the board's bounds and not occupied
-    if (x >= 0 && y >= 0 && x < this.width && y < this.height) {
-      // in bounds and empty
-      if (this.grid[y][x] === ".") {
-        return true;
-      }
-    }
-  }
-
   canBlockMove(testBlock) {
     const blockSet = new Map()
     for (let block of this.blocks) {
