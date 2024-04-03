@@ -15,14 +15,13 @@ export const T_ORIENTATIONS = [
 
 export const I_ORIENTATIONS = [
    `....
-   IIII
-   ....
-   ....`,
+    IIII
+    ....
+    ....`,
   `..I.    
- ..I.    
- ..I.    
- ..I.`,
-
+   ..I.    
+   ..I.    
+   ..I.`,
 ]
 
 export const O_ORIENTATIONS = [
@@ -30,4 +29,26 @@ export const O_ORIENTATIONS = [
    .OO.
    .OO.
    ....`
+]
+
+export const L_LEFT_ORIENTATIONS = [
+  `....
+   LLL.
+   L...
+   ....`,
+  `LL..
+   .L..
+   .L..
+   ....
+  `,
+  `....
+   ..L.
+   LLL.
+   ....
+  `,
+  `.L..
+   .L..
+   .LL.
+   ....
+  `
 ]
