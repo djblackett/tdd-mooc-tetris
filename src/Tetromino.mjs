@@ -50,16 +50,6 @@ export class Tetromino {
     this.orientations = orientations;
   }
 
-  static fromString2(currentOrientation, orientationCount, initialShape) {
-    const shape = RotatingShape.fromString(initialShape);
-    const orientations = [
-      shape,
-      shape.rotateRight(),
-      shape.rotateRight().rotateRight(),
-      shape.rotateRight().rotateRight().rotateRight(),
-    ].slice(0, orientationCount);
-    return new Tetromino(currentOrientation, orientations);
-  }
 
   static fromString(currentOrientation, orientationCount, initialShape) {
     const shape = RotatingShape.fromString(initialShape);
