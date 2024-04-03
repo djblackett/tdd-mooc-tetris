@@ -7,3 +7,9 @@ export function getMatrixFromString(str) {
   return newArr;
 }
 
+console.table(getMatrixFromString(`......T...
+       ......TT..
+       ......T...
+       ...TT.T...
+       ..TTTTTT..
+       ...TT.T...`));
