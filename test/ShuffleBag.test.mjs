@@ -8,7 +8,8 @@ describe("ShuffleBag", () => {
 
 test("Tetrominos should be fed to board in random order", () => {
   // todo add more block types after implementing
-  const Tetrominos = [Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE];
+  const Tetrominos = [Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE, Tetromino.L_SHAPE,
+    Tetromino.L_SHAPE_2, Tetromino.Z_SHAPE, Tetromino.Z_SHAPE_2];
   const shuffle1 = new ShuffleBag(Tetrominos).getShuffleBag();
   const shuffle2 = new ShuffleBag(Tetrominos).getShuffleBag()
 
