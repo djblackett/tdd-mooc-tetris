@@ -52,3 +52,25 @@ export const L_LEFT_ORIENTATIONS = [
    ....
   `
 ]
+
+export const L_RIGHT_ORIENTATIONS = [
+  `....
+   LLL.
+   ..L.
+   ....`,
+  `.L..
+   .L..
+   LL..
+   ....
+  `,
+  `....
+   L...
+   LLL.
+   ....
+  `,
+  `.LL.
+   .L..
+   .L..
+   ....
+  `
+]
