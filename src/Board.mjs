@@ -251,6 +251,10 @@ export class Board {
     return "."
   }
 
+  cellAt(row, col) {
+    return this.grid[row][col];
+  }
+
   hasFalling() {
     return this.movingBlock !== null;
   }
