@@ -172,10 +172,7 @@ export class Board {
         this.blocks.push(rotatedBlock);
         this.movingBlock = rotatedBlock
         this.applyBlockToGrid(rotatedBlock)
-      }
-
-
-      else {
+      } else {
         this.wallKick(oldBlock, rotatedBlock)
       }
     }
