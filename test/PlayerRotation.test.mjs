@@ -39,41 +39,20 @@ describe("Rotating tetrominoes", () => {
   })
 
   test("it cannot be rotated when there is no room to rotate", () => {
-    board.rotate()
-    board.moveRight()
-    board.moveRight()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.drop(Tetromino.T_SHAPE)
-    board.rotate()
-    board.moveRight()
-    board.moveRight()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.drop(Tetromino.T_SHAPE)
-    board.rotate()
-    board.rotate()
-    board.rotate()
-    board.moveLeft()
-// board.rotate()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    // board.printPretty()
+    board = new Board(10, 6, `
+       ......T...
+       ......TT..
+       ......T...
+       ...T..T...
+       ..TT..TT..
+       ...T..T...`);
 
     board.drop(Tetromino.T_SHAPE)
     board.rotate()
     board.moveDown()
     board.moveDown()
     board.moveDown()
-    // board.printPretty()
     board.rotate()
-    // board.printPretty()
-
 
     expect(board.toString()).to.equalShape(
       `......T...
@@ -146,22 +125,15 @@ describe("Rotating tetrominoes", () => {
     })
 
     test("will perform a wall kick when up against another block", () => {
-      board.rotate()
-      board.moveRight()
-      board.moveRight()
-      board.moveDown()
-      board.moveDown()
-      board.moveDown()
-      board.moveDown()
-      board.drop(Tetromino.T_SHAPE)
-      board.rotate()
-      board.moveRight()
-      board.moveRight()
-      board.moveDown()
-      board.moveDown()
-      board.moveDown()
 
-      // moving block
+      board = new Board(10, 6, `
+         ......T...
+         ......TT..
+         ......T...
+         ......T...
+         ......TT..
+         ......T...`)
+
       board.drop(Tetromino.T_SHAPE)
       board.rotate()
       board.rotate()
@@ -171,7 +143,8 @@ describe("Rotating tetrominoes", () => {
 
       onTestFailed(() => {
         console.log("Expected:");
-        console.log(`....T.T...
+        console.log(`
+         ....T.T...
          ...TTTTT..
          ......T...
          ......T...

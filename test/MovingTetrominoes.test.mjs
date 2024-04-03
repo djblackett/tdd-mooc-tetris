@@ -1,4 +1,3 @@
-
 import { beforeEach, describe, onTestFailed, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
