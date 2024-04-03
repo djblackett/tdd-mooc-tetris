@@ -126,7 +126,6 @@ export class Board {
       } else {
         this.blocks.push(oldBlock);
         this.applyBlockToGrid(oldBlock)
-        // console.table(this.grid)
       }
     }
   }
