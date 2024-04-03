@@ -10,7 +10,7 @@ describe("Rotating tetrominoes", () => {
     board.drop(Tetromino.T_SHAPE)
   });
 
-  test("a falling tetromino can be rotated", () => {
+  test("a falling tetromino can be rotated right", () => {
     board.rotateRight()
 
     onTestFailed(() => {
