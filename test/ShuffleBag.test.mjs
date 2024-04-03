@@ -1,6 +1,5 @@
-import { beforeEach, describe, onTestFailed, test } from "vitest";
+import { describe, test } from "vitest";
 import { expect } from "chai";
-import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 import { ShuffleBag } from "../src/ShuffleBag.mjs";
 
@@ -14,8 +13,5 @@ test("Tetrominos should be fed to board in random order", () => {
   const shuffle2 = new ShuffleBag(Tetrominos).getShuffleBag()
 
   expect(shuffle1).not.toStrictEqual(shuffle2)
-
-
 })
-
 })
