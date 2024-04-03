@@ -1,14 +1,9 @@
-
 import { beforeEach, describe, onTestFailed, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
+import { fallToBottom } from "./testing.mjs";
 
-function fallToBottom(board) {
-  for (let i = 0; i < 10; i++) {
-    board.tick();
-  }
-}
 
 describe("Falling tetrominoes", () => {
   let board;
@@ -79,19 +74,13 @@ describe("Falling tetrominoes", () => {
   });
 
   test("when block stops and completes a row it disappears and blocks move down", () => {
-    board.drop(Tetromino.T_SHAPE);
-    board.moveLeft()
-    board.moveLeft()
-    board.moveLeft()
-    fallToBottom(board)
-    board.drop(Tetromino.T_SHAPE)
-    fallToBottom(board)
-    board.drop(Tetromino.T_SHAPE)
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    fallToBottom(board)
+    board = new Board(10, 6, `
+       ..........
+       ..........
+       ..........
+       ..........
+       .T..T...T.
+       TTTTTT.TTT`);
 
     board.drop(Tetromino.T_SHAPE)
     board.rotate()
@@ -126,28 +115,12 @@ describe("Falling tetrominoes", () => {
   })
 
   test("Can clear 2 rows on board", () => {
-    board.drop(Tetromino.O_SHAPE)
-    board.moveLeft()
-    board.moveLeft()
-    board.moveLeft()
-    board.moveLeft()
-    fallToBottom(board)
-    board.drop(Tetromino.O_SHAPE)
-    board.moveLeft()
-    board.moveLeft()
-    fallToBottom(board)
-    board.drop(Tetromino.O_SHAPE)
-    fallToBottom(board)
-    board.drop(Tetromino.O_SHAPE)
-    board.moveRight()
-    board.moveRight()
-    fallToBottom(board)
-    board.drop(Tetromino.O_SHAPE)
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    fallToBottom(board)
+    board = new Board(10, 6, `..........
+       ..........
+       ..........
+       ..........
+       OOOOOOOOOO
+       OOOOOOOOOO`)
 
     board.checkRows()
 
@@ -175,3 +148,5 @@ describe("Falling tetrominoes", () => {
     );
   })
 });
+
+
