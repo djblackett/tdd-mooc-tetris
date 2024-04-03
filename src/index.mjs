@@ -2,6 +2,7 @@ import { Board } from "./Board.mjs";
 import { ScoringSystem } from "./ScoringSystem.mjs";
 import { ShuffleBag } from "./ShuffleBag.mjs";
 import { Tetromino } from "./Tetromino.mjs";
+import { PlayerScore } from "./PlayerScore.mjs";
 
 // TODO: change this code to match the API you have created, if you want to run the game for some manual testing
 
@@ -14,7 +15,7 @@ function initGame() {
     tickDuration: 1000,
     nextTick: 0,
   };
-  game.scoring = new ScoringSystem();
+  game.scoring = new PlayerScore();
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);

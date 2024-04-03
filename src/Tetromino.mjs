@@ -4,7 +4,7 @@ import {
   I_ORIENTATIONS,
   O_ORIENTATIONS,
   L_LEFT_ORIENTATIONS,
-  L_RIGHT_ORIENTATIONS, Z_RIGHT_ORIENTATIONS, Z_LEFT_ORIENTATIONS,
+  J_ORIENTATIONS, Z_RIGHT_ORIENTATIONS, Z_LEFT_ORIENTATIONS,
 } from "./Orientations.mjs";
 
 export class Tetromino {
@@ -30,13 +30,13 @@ export class Tetromino {
      L...
      ....`);
 
-  static L_SHAPE_2 = Tetromino.fromString(0, 4,
+  static J_SHAPE_2 = Tetromino.fromString(0, 4,
     `....
      LLL.
      ..L.
      ....`);
 
-  static Z_SHAPE = Tetromino.fromString(0, 2,
+  static S_SHAPE = Tetromino.fromString(0, 2,
     `....
      .ZZ.
      ZZ..
@@ -83,7 +83,7 @@ export class Tetromino {
     }
 
     if (initialShape.replaceAll(" ", "").trim() === `....\nLLL.\n..L.\n....`.replaceAll(" ", "").trim()) {
-      orientations = L_RIGHT_ORIENTATIONS.map(t => RotatingShape.fromString(t))
+      orientations = J_ORIENTATIONS.map(t => RotatingShape.fromString(t))
     }
 
     if (initialShape.replaceAll(" ", "").trim() === `....
