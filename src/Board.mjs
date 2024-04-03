@@ -195,8 +195,16 @@ export class Board {
   }
 
   wallKick(oldBlock, rotatedBlock) {
-
-  }
+    const rightBlock = rotatedBlock.moveRight()
+    const leftBlock = rotatedBlock.moveLeft()
+    if (this.canBlockMove(rightBlock)) {
+      this.blocks.push(rightBlock);
+      this.movingBlock = rightBlock
+      this.applyBlockToGrid(rightBlock)
+    } else if (this.canBlockMove(leftBlock)) {
+      this.blocks.push(leftBlock);
+      this.movingBlock = leftBlock
+    }}
 
   canBlockMove(testBlock) {
     const blockSet = new Map()
