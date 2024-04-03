@@ -30,7 +30,7 @@ export class Tetromino {
      L...
      ....`);
 
-  static J_SHAPE_2 = Tetromino.fromString(0, 4,
+  static J_SHAPE = Tetromino.fromString(0, 4,
     `....
      LLL.
      ..L.
@@ -42,7 +42,7 @@ export class Tetromino {
      ZZ..
      ....`);
 
-  static Z_SHAPE_2 = Tetromino.fromString(0, 2,
+  static Z_SHAPE = Tetromino.fromString(0, 2,
     `....
      ZZ..
      .ZZ.

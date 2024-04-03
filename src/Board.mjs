@@ -18,7 +18,7 @@ export class Board {
     this.height = height;
     this.observers = []
     this.shuffleBag = new ShuffleBag([Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE, Tetromino.L_SHAPE,
-      Tetromino.L_SHAPE_2, Tetromino.Z_SHAPE, Tetromino.Z_SHAPE_2])
+      Tetromino.J_SHAPE, Tetromino.S_SHAPE, Tetromino.Z_SHAPE])
     if (arguments.length < 3) {
       for (let i = 0; i < this.height; i++) {
         this.grid[i] = [];
