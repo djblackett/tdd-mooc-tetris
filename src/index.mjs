@@ -17,8 +17,8 @@ function initGame() {
   game.scoring = new PlayerScore();
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
-    // game.scoring.linesCleared(lineCount);
-  game.board.notify(lineCount)
+    game.scoring.updateScore(lineCount);
+  // game.board.notify(lineCount)
   };
   game.tetrominoes = new ShuffleBag([
     Tetromino.I_SHAPE,

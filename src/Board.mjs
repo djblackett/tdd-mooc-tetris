@@ -80,6 +80,7 @@ export class Board {
     }
     if (this.movingBlock instanceof MovableBlock || !this.legacy) {
       if (this.movingBlock.row + this.movingBlock.shape.getHeight() > this.height) {
+        this.blocks.pop();
         this.applyBlockToGrid(this.movingBlock)
         this.movingBlock = null;
         // this.checkRows()
@@ -96,6 +97,7 @@ export class Board {
         } else {
           this.blocks.push(oldBlock)
           this.applyBlockToGrid(oldBlock)
+
           this.movingBlock = null;
 
         }
@@ -317,6 +319,7 @@ export class Board {
           this.clearRow(i)
           this.grid.unshift(".".repeat(this.width).split(""))
           count++;
+          // i++;
         }
       }
     }
