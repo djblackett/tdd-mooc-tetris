@@ -248,13 +248,11 @@ export class Board {
   }
 
   toString() {
-    // this.applyBlocks()
     let strings = this.grid.map(row => row.join(""));
     return strings.join("\n") + "\n";
   }
 
   printPretty() {
-    // this.resetGrid()
     this.applyBlocks()
     console.table(this.grid);
     console.log();
