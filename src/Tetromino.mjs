@@ -23,21 +23,25 @@ export class Tetromino {
   //    LLL.
   //    L...
   //    ....`);
+
   // static L_SHAPE_2 = Tetromino.fromString(0, 4,
   //   `....
   //    LLL.
   //    ..L.
   //    ....`);
+
   // static Z_SHAPE = Tetromino.fromString(0, 2,
   //   `....
   //    .ZZ.
   //    ZZ..
   //    ....`);
+
   // static Z_SHAPE_2 = Tetromino.fromString(0, 2,
   //   `....
   //    ZZ..
   //    .ZZ.
   //    ....`);
+
   currentOrientation;
   orientations;
 
