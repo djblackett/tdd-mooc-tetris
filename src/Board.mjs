@@ -163,7 +163,7 @@ export class Board {
     }
   }
 
-  rotate() {
+  rotateRight() {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
       this.removeBlock(oldBlock)

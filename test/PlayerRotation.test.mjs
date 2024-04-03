@@ -11,7 +11,7 @@ describe("Rotating tetrominoes", () => {
   });
 
   test("a falling tetromino can be rotated", () => {
-    board.rotate()
+    board.rotateRight()
 
     onTestFailed(() => {
       console.log("Expected:");
@@ -48,11 +48,11 @@ describe("Rotating tetrominoes", () => {
        ...T..T...`);
 
     board.drop(Tetromino.T_SHAPE)
-    board.rotate()
+    board.rotateRight()
     board.moveDown()
     board.moveDown()
     board.moveDown()
-    board.rotate()
+    board.rotateRight()
 
     expect(board.toString()).to.equalShape(
       `......T...
@@ -68,12 +68,12 @@ describe("Rotating tetrominoes", () => {
     "from the wall if possible", () => {
 
     test.skip("will perform a left wall kick", () => {
-      board.rotate()
+      board.rotateRight()
       board.moveLeft()
       board.moveLeft()
       board.moveLeft()
       board.moveLeft()
-      board.rotate()
+      board.rotateRight()
 
       expect(board.toString()).to.equalShape(
         `..........
@@ -86,15 +86,15 @@ describe("Rotating tetrominoes", () => {
     })
 
     test.skip("will perform a right wall kick", () => {
-      board.rotate()
-      board.rotate()
-      board.rotate()
+      board.rotateRight()
+      board.rotateRight()
+      board.rotateRight()
       board.moveRight()
       board.moveRight()
       board.moveRight()
       board.moveRight()
       board.moveRight()
-      board.rotate()
+      board.rotateRight()
 
       expect(board.toString()).to.equalShape(
         `........T.
@@ -117,11 +117,11 @@ describe("Rotating tetrominoes", () => {
          ......T...`)
 
       board.drop(Tetromino.T_SHAPE)
-      board.rotate()
-      board.rotate()
-      board.rotate()
+      board.rotateRight()
+      board.rotateRight()
+      board.rotateRight()
       board.moveRight()
-      board.rotate()
+      board.rotateRight()
 
       onTestFailed(() => {
         console.log("Expected:");

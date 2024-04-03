@@ -1,5 +1,4 @@
 import { Board } from "./Board.mjs";
-import { ScoringSystem } from "./ScoringSystem.mjs";
 import { ShuffleBag } from "./ShuffleBag.mjs";
 import { Tetromino } from "./Tetromino.mjs";
 import { PlayerScore } from "./PlayerScore.mjs";

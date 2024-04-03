@@ -41,8 +41,8 @@ export function setUpRowClear(board) {
   fallToBottom(board)
 
   board.drop(Tetromino.T_SHAPE)
-  board.rotate()
-  board.rotate()
+  board.rotateRight()
+  board.rotateRight()
   board.moveRight()
   board.moveRight()
   fallToBottom(board)
