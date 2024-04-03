@@ -31,7 +31,7 @@ export const O_ORIENTATIONS = [
    ....`
 ]
 
-export const L_LEFT_ORIENTATIONS = [
+export const L_ORIENTATIONS = [
   `....
    LLL.
    L...
@@ -75,7 +75,7 @@ export const J_ORIENTATIONS = [
   `
 ]
 
-export const Z_RIGHT_ORIENTATIONS = [
+export const S_ORIENTATIONS = [
   `....
    .ZZ.
    ZZ..
@@ -87,7 +87,7 @@ export const Z_RIGHT_ORIENTATIONS = [
    ....`
 ];
 
-export const Z_LEFT_ORIENTATIONS = [
+export const Z_ORIENTATIONS = [
   `....
    ZZ..
    .ZZ.
