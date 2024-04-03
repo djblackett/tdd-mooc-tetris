@@ -24,7 +24,7 @@ describe("Moving tetrominoes", () => {
        ..........
        ..........`
     );
-  })
+  });
 
   test("a falling tetromino can be moved right", () => {
     board.drop(Tetromino.T_SHAPE)
@@ -37,7 +37,7 @@ describe("Moving tetrominoes", () => {
        ..........
        ..........`
     );
-  })
+  });
 
 
   test("a falling tetromino can be moved down", () => {
@@ -52,7 +52,7 @@ describe("Moving tetrominoes", () => {
        ..........
        `
     );
-  })
+  });
 
   test("it cannot be moved left beyond the board", () => {
     board.drop(Tetromino.T_SHAPE)
@@ -108,23 +108,13 @@ describe("Moving tetrominoes", () => {
   });
 
   test("it cannot be moved left through other blocks", () => {
-    board.drop(Tetromino.T_SHAPE)
-    board.moveLeft()
-    board.moveLeft()
-    board.moveLeft()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.drop(Tetromino.T_SHAPE)
-    board.moveLeft()
-    board.moveLeft()
-    board.moveLeft()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
+    board = new Board(10, 6, `..........
+       ..........
+       .T........
+       TTT.......
+       .T........
+       TTT.......`)
+
     board.drop(Tetromino.T_SHAPE)
     board.moveDown()
     board.moveDown()
@@ -133,7 +123,8 @@ describe("Moving tetrominoes", () => {
 
     onTestFailed(() => {
       console.log("Expected:");
-      console.log(`..........
+      console.log(`
+       ..........
        ..........
        .T..T.....
        TTTTTT....
@@ -154,39 +145,17 @@ describe("Moving tetrominoes", () => {
        .T........
        TTT.......`
     );
-
-    onTestFailed(() => {
-      console.log("Expected:", `..........
-       ..........
-       .T..T.....
-       TTTTTT....
-       .T........
-       TTT.......`);
-      console.log();
-      console.log("Received:", board.toString());
-    })
   })
 
   test("it cannot be moved right through other blocks", () => {
-    board.drop(Tetromino.T_SHAPE)
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.drop(Tetromino.T_SHAPE)
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
+    board = new Board(10, 6, `
+       ..........
+       ..........
+       ........T.
+       .......TTT
+       ........T.
+       .......TTT`);
+
     board.drop(Tetromino.T_SHAPE)
     board.moveDown()
     board.moveDown()
@@ -202,16 +171,17 @@ describe("Moving tetrominoes", () => {
        ........T.
        .......TTT`
     );
-  })
+  });
 
 
   test("it cannot be moved down through other blocks (will stop falling)", () => {
-    board.drop(Tetromino.T_SHAPE)
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
-    board.moveDown()
+    board = new Board(10, 6, `
+       ..........
+       ..........
+       ..........
+       ..........
+       ....T.....
+       ...TTT....`)
 
     board.drop(Tetromino.T_SHAPE)
     board.moveDown()
@@ -230,19 +200,16 @@ describe("Moving tetrominoes", () => {
     );
   })
 
+  // Written to diagnose an odd bug
   test("O_SHAPE can move all the way to the right", () => {
-    board.drop(Tetromino.O_SHAPE);
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    fallToBottom(board)
-    board.drop(Tetromino.O_SHAPE);
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    board.moveRight()
-    fallToBottom(board)
+    board = new Board(10, 6, `
+       ..........
+       ..........
+       ........OO
+       ........OO
+       ........OO
+       ........OO`
+    )
     board.drop(Tetromino.O_SHAPE);
     board.moveRight()
     board.moveRight()
