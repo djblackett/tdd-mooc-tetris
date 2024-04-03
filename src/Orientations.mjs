@@ -74,3 +74,15 @@ export const L_RIGHT_ORIENTATIONS = [
    ....
   `
 ]
+
+export const Z_RIGHT_ORIENTATIONS = [
+  `....
+   .ZZ.
+   ZZ..
+   ....
+  `,
+  `Z...
+   ZZ..
+   .Z..
+   ....`
+];
