@@ -238,9 +238,6 @@ describe("Falling tetrominoes", () => {
        ..........`
     );
   })
-
-
-
 });
 
 
