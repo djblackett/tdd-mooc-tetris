@@ -3,6 +3,7 @@ import { MovableBlock } from "./MovableBlock.mjs";
 import { Point } from "./Point.mjs";
 import { PlayerScore } from "./PlayerScore.mjs";
 import { ShuffleBag } from "./ShuffleBag.mjs";
+import { getMatrixFromString } from "./utils.mjs";
 
 export class Board {
   width;
@@ -26,7 +27,7 @@ export class Board {
         }
       }
     } else {
-      // this.grid =
+      this.grid = getMatrixFromString(grid);
     }
   }
 
