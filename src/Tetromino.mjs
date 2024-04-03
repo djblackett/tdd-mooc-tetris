@@ -18,6 +18,16 @@ export class Tetromino {
        .OO.
        ....`);
 
+  // static L_SHAPE = Tetromino.fromString(0, 4,
+  //   `....
+  //    LLL.
+  //    L...
+  //    ....`);
+  // static L_SHAPE_2 = Tetromino.fromString(0, 4,
+  //   `....
+  //    LLL.
+  //    ..L.
+  //    ....`);
 
   currentOrientation;
   orientations;
