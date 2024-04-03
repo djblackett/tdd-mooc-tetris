@@ -194,6 +194,10 @@ export class Board {
     }
   }
 
+  wallKick(oldBlock, rotatedBlock) {
+
+  }
+
   canBlockMove(testBlock) {
     const blockSet = new Map()
     for (let block of this.blocks) {
