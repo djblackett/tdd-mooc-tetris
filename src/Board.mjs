@@ -223,7 +223,14 @@ export class Board {
       }
     }
     for (let point of testBlock.getFilledCoordinates()) {
-      if (point.col < 0 || point.col >= this.width || point.row >= this.height || this.grid[point.row][point.col] !== "." ){return false;}
+      try {
+        if (point.col < 0 || point.col >= this.width || point.row < 0 || point.row >= this.height ||
+          !this.grid[point.row][point.col] || this.grid[point.row][point.col] !== ".") {
+          return false;
+        }
+      } catch(e) {
+        console.error(e);
+      }
       if (blockSet.has(point.toString())) {
         return false;
       }
