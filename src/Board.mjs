@@ -176,21 +176,7 @@ export class Board {
 
 
       else {
-        // this.wallKick(oldBlock, rotatedBlock)
-        const rightBlock = rotatedBlock.moveRight()
-        const leftBlock = rotatedBlock.moveLeft()
-        if (this.canBlockMove(rightBlock)) {
-          this.blocks.push(rightBlock);
-          this.movingBlock = rightBlock
-          this.applyBlockToGrid(rightBlock)
-        } else if (this.canBlockMove(leftBlock)) {
-          this.blocks.push(leftBlock);
-          this.movingBlock = leftBlock
-          this.applyBlockToGrid(leftBlock)
-        } else {
-          this.blocks.push(oldBlock);
-          this.applyBlockToGrid(oldBlock)
-        }
+        this.wallKick(oldBlock, rotatedBlock)
       }
     }
   }
