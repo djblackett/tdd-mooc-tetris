@@ -176,6 +176,7 @@ export class Board {
 
 
       else {
+        // this.wallKick(oldBlock, rotatedBlock)
         const rightBlock = rotatedBlock.moveRight()
         const leftBlock = rotatedBlock.moveLeft()
         if (this.canBlockMove(rightBlock)) {
