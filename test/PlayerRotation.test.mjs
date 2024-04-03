@@ -51,7 +51,7 @@ describe("Rotating tetrominoes", () => {
 
 
   })
-    test("it cannot be rotated when there is no room to rotate", () => {
+  test("it cannot be rotated when there is no room to rotate", () => {
     board = new Board(10, 6, `
        ......T...
        ......TT..
@@ -80,7 +80,7 @@ describe("Rotating tetrominoes", () => {
   describe("when it is up against a wall (or other blocks) and is rotated, but there is no room to rotate, move it away " +
     "from the wall if possible", () => {
 
-    test.skip("will perform a left wall kick", () => {
+    test("will perform a left wall kick", () => {
       board.rotateRight()
       board.moveLeft()
       board.moveLeft()
@@ -98,7 +98,7 @@ describe("Rotating tetrominoes", () => {
       );
     })
 
-    test.skip("will perform a right wall kick", () => {
+    test("will perform a right wall kick", () => {
       board.rotateRight()
       board.rotateRight()
       board.rotateRight()
@@ -114,6 +114,49 @@ describe("Rotating tetrominoes", () => {
          .......TTT
          ..........
          ..........
+         ..........
+         ..........`
+      );
+    })
+
+    test("I block will perform right wall kick", () => {
+      board = new Board(10, 6);
+      board.drop(Tetromino.I_SHAPE);
+      board.moveDown()
+      board.moveDown()
+      board.rotateRight();
+      board.moveRight()
+      board.moveRight()
+      board.moveRight()
+      board.rotateRight()
+
+      expect(board.toString()).to.equalShape(
+        `..........
+         ..........
+         ..........
+         ......IIII
+         ..........
+         ..........`
+      );
+    })
+
+    test("I block cannot be rotated when there is no room to rotate", () => {
+      board = new Board(10, 6);
+      board.drop(Tetromino.I_SHAPE);
+      board.moveDown()
+      board.moveDown()
+      board.rotateRight();
+      board.moveRight()
+      board.moveRight()
+      board.moveRight()
+      board.moveRight()
+      board.rotateRight()
+
+      expect(board.toString()).to.equalShape(
+        `..........
+         ..........
+         ..........
+         ......IIII
          ..........
          ..........`
       );
@@ -160,6 +203,32 @@ describe("Rotating tetrominoes", () => {
          ......TT..
          ......T...`
       );
+    })
+
+    test("I_SHAPE should perform wall kick when up against another block", () => {
+        board = new Board(10, 6,
+          `..........
+           ..........
+           ........I.
+           ........I.
+           ........I.
+           ........I.`);
+
+        board.drop(Tetromino.I_SHAPE);
+        board.moveDown()
+        board.moveDown()
+      board.rotateRight()
+      board.moveRight()
+      board.moveRight()
+      board.rotateRight()
+
+      expect(board.toString()).to.equalShape(`
+           ..........
+           ..........
+           ........I.
+           ....IIIII.
+           ........I.
+           ........I.`)
     })
   })
 })
