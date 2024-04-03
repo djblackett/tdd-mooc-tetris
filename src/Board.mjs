@@ -1,7 +1,6 @@
 import { Tetromino } from "./Tetromino.mjs";
 import { MovableBlock } from "./MovableBlock.mjs";
 import { Point } from "./Point.mjs";
-import { PlayerScore } from "./PlayerScore.mjs";
 import { ShuffleBag } from "./ShuffleBag.mjs";
 import { getMatrixFromString } from "./utils.mjs";
 
@@ -18,7 +17,8 @@ export class Board {
     this.width = width;
     this.height = height;
     this.observers = []
-    this.shuffleBag = new ShuffleBag([Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE])
+    this.shuffleBag = new ShuffleBag([Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE, Tetromino.L_SHAPE,
+      Tetromino.L_SHAPE_2, Tetromino.Z_SHAPE, Tetromino.Z_SHAPE_2])
     if (arguments.length < 3) {
       for (let i = 0; i < this.height; i++) {
         this.grid[i] = [];
