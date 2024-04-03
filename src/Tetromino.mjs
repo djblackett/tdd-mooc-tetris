@@ -42,11 +42,11 @@ export class Tetromino {
      ZZ..
      ....`);
 
-  // static Z_SHAPE_2 = Tetromino.fromString(0, 2,
-  //   `....
-  //    ZZ..
-  //    .ZZ.
-  //    ....`);
+  static Z_SHAPE_2 = Tetromino.fromString(0, 2,
+    `....
+     ZZ..
+     .ZZ.
+     ....`);
 
   currentOrientation;
   orientations;
