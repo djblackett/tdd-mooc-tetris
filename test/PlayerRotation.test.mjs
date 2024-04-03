@@ -85,24 +85,6 @@ describe("Rotating tetrominoes", () => {
       );
     })
 
-    // this is probably not authentic for tetris
-    test.skip("will perform a bottom wall kick", () => {
-      board.moveDown()
-      board.moveDown()
-      board.moveDown()
-      board.moveDown()
-      board.rotate()
-
-      expect(board.toString()).to.equalShape(
-        `..........
-         ..........
-         ..........
-         ....T.....
-         ....TT....
-         ....T.....`
-      );
-    })
-
     test.skip("will perform a right wall kick", () => {
       board.rotate()
       board.rotate()
