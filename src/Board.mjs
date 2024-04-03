@@ -82,6 +82,7 @@ export class Board {
       if (this.movingBlock.row + this.movingBlock.shape.getHeight() > this.height) {
         this.applyBlockToGrid(this.movingBlock)
         this.movingBlock = null;
+        // this.checkRows()
       } else {
         const oldBlock =    this.blocks.pop();
         this.removeBlock(oldBlock)
@@ -89,17 +90,18 @@ export class Board {
         const valid = this.canBlockMove(newBlock);
 
         if (valid) {
-
           this.blocks.push(newBlock);
           this.movingBlock = newBlock
+          this.applyBlockToGrid(newBlock)
         } else {
           this.blocks.push(oldBlock)
           this.applyBlockToGrid(oldBlock)
           this.movingBlock = null;
+
         }
       }
-    }
 
+    }
     else {
 
       // legacy code for passing early tests
@@ -112,6 +114,7 @@ export class Board {
         this.movingBlock[2]++;
       }
     }
+
   }
 
   moveLeft() {

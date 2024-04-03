@@ -17,7 +17,8 @@ function initGame() {
   game.scoring = new PlayerScore();
   game.board = new Board(game.columns, game.rows);
   game.board.onClearLine = (lineCount) => {
-    game.scoring.linesCleared(lineCount);
+    // game.scoring.linesCleared(lineCount);
+  game.board.notify(lineCount)
   };
   game.tetrominoes = new ShuffleBag([
     Tetromino.I_SHAPE,
@@ -73,7 +74,7 @@ function progressTime(game, timestamp) {
 
 function tick(game) {
   if (!game.board.hasFalling()) {
-    game.board.drop(game.tetrominoes.next());
+    game.board.drop(game.tetrominoes.getBlock());
   } else {
     game.board.tick();
   }
