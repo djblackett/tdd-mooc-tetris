@@ -36,11 +36,11 @@ export class Tetromino {
      ..L.
      ....`);
 
-  // static Z_SHAPE = Tetromino.fromString(0, 2,
-  //   `....
-  //    .ZZ.
-  //    ZZ..
-  //    ....`);
+  static Z_SHAPE = Tetromino.fromString(0, 2,
+    `....
+     .ZZ.
+     ZZ..
+     ....`);
 
   // static Z_SHAPE_2 = Tetromino.fromString(0, 2,
   //   `....
