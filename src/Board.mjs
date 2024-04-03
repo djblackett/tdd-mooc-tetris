@@ -182,10 +182,17 @@ export class Board {
     if (this.movingBlock) {
       const oldBlock = this.blocks.pop();
       this.removeBlock(oldBlock)
-      const rotatedBlock = this.movingBlock.rotateRight()
+      const rotatedBlock = this.movingBlock.rotateLeft()
       if (this.canBlockMove(rotatedBlock)) {
+        if (this.canBlockMove(rotatedBlock)) {
+          this.blocks.push(rotatedBlock);
+          this.movingBlock = rotatedBlock
+          this.applyBlockToGrid(rotatedBlock)
+        } else {
+          this.wallKick(oldBlock, rotatedBlock)
+        }
       }
-      }
+    }
   }
 
   wallKick(oldBlock, rotatedBlock) {
