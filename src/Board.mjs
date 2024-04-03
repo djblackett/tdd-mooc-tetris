@@ -204,7 +204,11 @@ export class Board {
     } else if (this.canBlockMove(leftBlock)) {
       this.blocks.push(leftBlock);
       this.movingBlock = leftBlock
-    }}
+    } else {
+      this.blocks.push(oldBlock);
+      this.applyBlockToGrid(oldBlock)
+    }
+  }
 
   canBlockMove(testBlock) {
     const blockSet = new Map()
