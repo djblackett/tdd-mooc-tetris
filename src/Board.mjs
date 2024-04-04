@@ -11,8 +11,7 @@ export class Board {
   grid = []
   movingBlock = null;
   legacy = true;
-
-
+  
   constructor(width, height, grid) {
     this.width = width;
     this.height = height;
@@ -263,7 +262,6 @@ export class Board {
   }
 
   printPretty() {
-    // this.applyBlocks()
     console.table(this.grid);
     console.log();
   }
