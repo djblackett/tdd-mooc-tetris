@@ -8,6 +8,8 @@ describe("ShuffleBag", () => {
   const TETROMINOS = [Tetromino.T_SHAPE, Tetromino.O_SHAPE, Tetromino.I_SHAPE, Tetromino.L_SHAPE,
     Tetromino.J_SHAPE, Tetromino.S_SHAPE, Tetromino.Z_SHAPE];
 
+  // This test could fail very intermittently due to the rare chance of 2 shuffles being the same
+  // Could be an issue for automated build systems
   test("Tetrominos should be fed to board in random order", () => {
 
     const shuffle1 = new ShuffleBag(TETROMINOS).getShuffleBag();
