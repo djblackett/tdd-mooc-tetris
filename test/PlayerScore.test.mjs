@@ -10,17 +10,29 @@ describe("Players can score points", () => {
     board = new Board(10, 6)
   })
 
-  test("The player should receive points every time they manage to remove a row.", () => {
+  test("The player should receive 100 points every time they manage to remove a row.", () => {
     let score = 0;
-    setUpRowClear(board)
+    board = new Board(10, 6, `
+       ..........
+       ..........
+       ..........
+       ..........
+       .T..TTTTT.
+       TTTTTTTTTT`)
     const rowsCleared = board.checkRows()
     score += rowsCleared * 100;
     expect(score).toBe(100);
   })
 
-  test("Player should receive more points from clearing two rows", () => {
+  test("Player should receive 200 points from clearing two rows", () => {
     let score = 0;
-    setUpDoubleRowClear(board)
+    board = new Board(10, 6, `..........
+       ..........
+       ..........
+       ..........
+       OOOOOOOOOO
+       OOOOOOOOOO`)
+
     const rowsCleared = board.checkRows()
     score += rowsCleared * 100;
     expect(score).toBe(200);
@@ -28,8 +40,12 @@ describe("Players can score points", () => {
 
   test("Player should receive 300 points from clearing three rows", () => {
     let score = 0;
-    setUpDoubleRowClear(board)
-    setUpRowClear(board)
+    board = new Board(10, 6, `..........
+       .....TTT..
+       .T..T.T.T.
+       TTTTTTTTTT
+       OOOOOOOOOO
+       OOOOOOOOOO`)
     const rowsCleared = board.checkRows()
     score += rowsCleared * 100;
     expect(score).toBe(300);
@@ -38,8 +54,12 @@ describe("Players can score points", () => {
   // todo - test passes but visual inspection looks incorrect
   test("Player should receive 400 points from clearing four rows", () => {
     let score = 0;
-    setUpDoubleRowClear(board)
-    setUpDoubleRowClear(board)
+    board = new Board(10, 6, `..........
+       ..........
+       OOOOOOOOOO
+       OOOOOOOOOO
+       OOOOOOOOOO
+       OOOOOOOOOO`)
     const rowsCleared = board.checkRows()
     score += rowsCleared * 100;
     expect(score).toBe(400);
@@ -50,7 +70,6 @@ describe("Players can score points", () => {
     const playerScore = new PlayerScore();
     board.attach(playerScore);
     setUpRowClear(board)
-    board.checkRows()
     expect(playerScore.score).toBe(100);
 
   })
