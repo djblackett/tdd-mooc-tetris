@@ -238,6 +238,63 @@ describe("Falling tetrominoes", () => {
        ..........`
     );
   })
+
+
+  test("empty cells after a row clear should remain empty and accept new blocks in their empty spaces", () => {
+    board = new Board(10, 6, `..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........`)
+
+    // board.checkRows()
+    board.drop(Tetromino.O_SHAPE)
+    board.moveLeft()
+    board.moveLeft()
+    fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE)
+    fallToBottom(board)
+    board.drop(Tetromino.O_SHAPE)
+    board.moveLeft()
+    board.moveLeft()
+    board.moveLeft()
+    board.moveLeft()
+    fallToBottom(board)
+
+    board.drop(Tetromino.O_SHAPE)
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+
+    board.drop(Tetromino.O_SHAPE)
+    board.moveRight()
+    board.moveRight()
+    fallToBottom(board)
+
+    board.printPretty()
+    board.drop(Tetromino.I_SHAPE)
+    fallToBottom(board)
+    // board.drop(Tetromino.I_SHAPE)
+    // board.moveDown()
+    // board.moveDown()
+    // board.rotateRight()
+    // board.moveRight()
+    // board.moveRight()
+    // fallToBottom(board)
+
+    board.printPretty()
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ...IIII...`
+    );
+  })
 });
 
 
