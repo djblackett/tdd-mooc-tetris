@@ -51,7 +51,6 @@ describe("Players can score points", () => {
     expect(score).toBe(300);
   })
 
-  // todo - test passes but visual inspection looks incorrect
   test("Player should receive 400 points from clearing four rows", () => {
     let score = 0;
     board = new Board(10, 6, `..........
