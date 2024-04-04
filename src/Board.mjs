@@ -268,7 +268,7 @@ export class Board {
   }
 
   printPretty() {
-    this.applyBlocks()
+    // this.applyBlocks()
     console.table(this.grid);
     console.log();
   }
