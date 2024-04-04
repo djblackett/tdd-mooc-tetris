@@ -89,9 +89,10 @@ export class Board {
           this.movingBlock = newBlock
           this.applyBlockToGrid(newBlock)
         } else {
-          this.blocks.push(oldBlock)
+          // this.blocks.push(oldBlock)
           this.applyBlockToGrid(oldBlock)
           this.movingBlock = null;
+          this.checkRows()
         }
       }
     else {
@@ -307,10 +308,10 @@ export class Board {
 
   checkRows() {
     let count = 0;
-    for (let i = 0; i < this.height; i++) {
-      for (let j = 0; j < this.width; j++) {
+    outerloop: for (let i = 0; i < this.height; i++) {
+      innerloop: for (let j = 0; j < this.width; j++) {
         if (this.grid[i][j] === ".") {
-          continue;
+          break innerloop;
         }
         if (j === this.width - 1) {
           this.clearRow(i)
