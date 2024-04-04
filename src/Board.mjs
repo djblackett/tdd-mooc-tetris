@@ -11,7 +11,7 @@ export class Board {
   grid = []
   movingBlock = null;
   legacy = true;
-  
+
   constructor(width, height, grid) {
     this.width = width;
     this.height = height;
