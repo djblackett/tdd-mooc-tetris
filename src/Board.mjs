@@ -89,7 +89,6 @@ export class Board {
           this.movingBlock = newBlock
           this.applyBlockToGrid(newBlock)
         } else {
-          // this.blocks.push(oldBlock)
           this.applyBlockToGrid(oldBlock)
           this.movingBlock = null;
           this.checkRows()
@@ -211,11 +210,6 @@ export class Board {
 
   canBlockMove(testBlock) {
     const blockSet = new Map()
-    // for (let block of this.blocks) {
-    //   for (let point of block.getFilledCoordinates()) {
-    //     blockSet.set(point.toString(), point);
-    //   }
-    // }
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.grid[i][j] !== ".") {
@@ -318,7 +312,6 @@ export class Board {
           this.clearRow(i)
           this.grid.unshift(".".repeat(this.width).split(""))
           count++;
-          // i++;
         }
       }
     }
