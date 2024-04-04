@@ -59,7 +59,7 @@ export class Board {
         let newBlock = new MovableBlock(block.shape(), 0, Math.floor((this.width - block.getWidth()) / 2), this.width, this.height)
 
         while (!this.isBlockAtTop(newBlock)) {
-        newBlock = newBlock.moveUp()
+          newBlock = newBlock.moveUp()
         }
 
         this.blocks.push(newBlock);
@@ -89,7 +89,7 @@ export class Board {
           this.movingBlock = newBlock
           this.applyBlockToGrid(newBlock)
         } else {
-          this.blocks.push(oldBlock)
+          // this.blocks.push(oldBlock)
           this.applyBlockToGrid(oldBlock)
           this.movingBlock = null;
           this.checkRows()
@@ -155,6 +155,7 @@ export class Board {
         this.blocks.push(oldBlock);
         this.applyBlockToGrid(oldBlock)
         this.movingBlock = null;
+        this.checkRows()
       }
     }
   }
@@ -210,11 +211,11 @@ export class Board {
 
   canBlockMove(testBlock) {
     const blockSet = new Map()
-    for (let block of this.blocks) {
-      for (let point of block.getFilledCoordinates()) {
-        blockSet.set(point.toString(), point);
-      }
-    }
+    // for (let block of this.blocks) {
+    //   for (let point of block.getFilledCoordinates()) {
+    //     blockSet.set(point.toString(), point);
+    //   }
+    // }
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         if (this.grid[i][j] !== ".") {
