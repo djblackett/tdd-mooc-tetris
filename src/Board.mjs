@@ -79,7 +79,7 @@ export class Board {
       return;
     }
     if (this.movingBlock instanceof MovableBlock || !this.legacy) {
-        const oldBlock =    this.blocks.pop();
+        const oldBlock = this.blocks.pop();
         this.removeBlock(oldBlock)
         const newBlock = this.movingBlock.moveDown();
         const valid = this.canBlockMove(newBlock);
@@ -89,7 +89,7 @@ export class Board {
           this.movingBlock = newBlock
           this.applyBlockToGrid(newBlock)
         } else {
-          // this.blocks.push(oldBlock)
+          this.blocks.push(oldBlock)
           this.applyBlockToGrid(oldBlock)
           this.movingBlock = null;
           this.checkRows()

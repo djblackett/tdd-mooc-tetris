@@ -77,7 +77,7 @@ function tick(game) {
     game.board.drop(game.tetrominoes.getBlock());
   } else {
     game.board.tick();
-    game.board.checkRows()
+    // game.board.checkRows()
   }
 }
 
